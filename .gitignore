@@ -1,0 +1,4 @@
+output*
+build
+*.box
+packer_cache
