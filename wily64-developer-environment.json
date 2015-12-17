@@ -108,17 +108,6 @@
       "scripts": [
         "scripts/enable_passwordless_sudo.sh",
         "scripts/install_ubuntu_desktop.sh",
-        "scripts/install_developer_tools.sh",
-        "scripts/install_java.sh",
-        "scripts/install_maven.sh",
-        "scripts/install_sbt.sh",
-        "scripts/install_scala.sh",
-        "scripts/install_docker.sh",
-        "scripts/install_docker_compose.sh",
-        "scripts/install_cf_cli.sh",
-        "scripts/install_intellij.sh",
-        "scripts/install_chrome.sh",
-        "scripts/install_mkcast.sh",
         "scripts/clean_ubuntu_cache.sh",
         "scripts/zero_image_drive.sh"
       ],
