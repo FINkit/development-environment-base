@@ -3,7 +3,7 @@
 echo "Installing intellij..."
 JDK_HOME="$(find /opt -name jre -type d -print 2>/dev/null | head -1)/.."
 echo "JDK_HOME=${JDK_HOME}" >> /etc/environment
-intellij="http://download.jetbrains.com/idea/ideaIC-14.1.4.tar.gz"
+intellij="http://download.jetbrains.com/idea/ideaIC-15.0.2.tar.gz"
 product="intellij"
 version=$(echo ${intellij} | sed 's/^.*idea\/\([a-zA-Z\-]*.[a-z]*\)-\([0-9\-\.]*\).tar.gz/\2/')
 mkdir -p /opt/${product}/${version}/
