@@ -144,7 +144,7 @@
     "ssh_host_port_min": "6000",
     "ssh_port": "22",
     "ssh_username": "vagrant",
-    "ssh_wait_timeout": "10m",
+    "ssh_wait_timeout": "15m",
     "sudo_password": "vagrant",
     "vagrant_box_file": "build/{{isotime \"2006-01-02-15-10\"}}/{{env `ATLAS_NAME`}}.box",
     "vagrantfile_template": "Vagrantfile.template",
