@@ -43,8 +43,8 @@ d-i clock-setup/utc boolean true
 
 # Network Setup
 # must be passed in on the init line as well
-d-i netcfg/get_hostname string wily
-d-i netcfg/get_domain string
+d-i netcfg/get_hostname string developer-environment
+d-i netcfg/get_domain string wily64
 # must be passed in on the init line as well
 
 # User Setup
