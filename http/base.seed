@@ -20,7 +20,7 @@ d-i	grub-installer/timeout	string 2
 oem-config	oem-config/steps	multiselect language, timezone, keyboard, user, network, tasks
 
 # =============================================================================
-# Everything above is from ubuntu-server.seed in ubuntu-15.04-server-amd64.iso
+# Everything above is from ubuntu-server.seed in ubuntu-15.10-server-amd64.iso
 
 # Locale Setup
 # must be passed in on the init line as well
@@ -44,11 +44,11 @@ d-i clock-setup/utc boolean true
 # Network Setup
 # must be passed in on the init line as well
 d-i netcfg/get_hostname string wily64-developer-environment
-d-i netcfg/get_domain string wily64-developer-environment
+d-i netcfg/get_domain string
 # must be passed in on the init line as well
 
 # User Setup
-d-i passwd/user-fullname string vagrant
+d-i passwd/user-fullname string Developer Environment
 d-i passwd/username string vagrant
 d-i passwd/user-password password vagrant
 d-i passwd/user-password-again password vagrant
@@ -56,7 +56,7 @@ d-i user-setup/allow-password-weak boolean true
 d-i user-setup/encrypt-home boolean false
 
 # Package Setup
-d-i mirror/http/proxy string
+d-i mirror/http/proxy string auto
 d-i pkgsel/update-policy select none
 tasksel tasksel/first multiselect ubuntu-server
 d-i pkgsel/include string openssh-server
