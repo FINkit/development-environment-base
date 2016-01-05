@@ -17,6 +17,8 @@
         "kbd-chooser/method=gb<wait> ",
         "keyboard-configuration/layout=UK<wait> ",
         "keyboard-configuration/variant=UK<wait> ",
+        "netcfg/get_domain={{env `ATLAS_NAME`}}<wait>",
+        "netcfg/get_hostname={{env `ATLAS_NAME`}}<wait>",
         "locale=en_GB<wait> ",
         "grub-installer/bootdev=/dev/sda<wait> ",
         "noapic<wait> ",
