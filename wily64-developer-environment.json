@@ -134,6 +134,7 @@
           "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}' '{{ user `VBOX_VERSION` }}' '{{ user `VM_TYPE` }}' "
          }
        }
+     }
   ],
   "push": {
     "name": "cooperc/wily64-developer-environment",
