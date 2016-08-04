@@ -3,7 +3,7 @@ language: ruby
 rvm:
   - rbx
 env:
-  - PACKER_VERSION="0.8.6"
+  - PACKER_VERSION="0.10.1"
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y wget unzip
