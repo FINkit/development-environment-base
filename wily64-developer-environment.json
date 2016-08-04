@@ -1,16 +1,17 @@
 {
   "variables": {
+    "atlas_username": "{{env `ATLAS_USERNAME`}}",
     "iso_checksum": "86aa35a986eba6e5ad30e3d486d57efe6803ae7ea4859b0216953e9e62871131",
     "iso_checksum_type": "sha256",
     "iso_file": "http://releases.ubuntu.com/15.10/ubuntu-15.10-server-amd64.iso",
     "preseed_file": "base.seed",
     "vagrant_box_file": "build/{{isotime \"2006-01-02-15-10\"}}/{{env `ATLAS_NAME`}}.box",
-    "vbox_version": "5.0.18",
+    "vm_name": "{{env `ATLAS_NAME`}}",
     "vm_type": "Ubuntu_64",
     "vm_cpus": "2",
     "vm_ram_size": "1024",
     "vm_vram_size": "64",
-    "vm_disk_size": "10240",
+    "vm_disk_size": "10240"
   },
   "provisioners": [
      {
@@ -19,16 +20,12 @@
         "scripts/enable_passwordless_sudo.sh",
         "scripts/clean_ubuntu_cache.sh",
         "scripts/zero_image_drive.sh"
-      ],
-      "override": {
-        "virtualbox-iso": {
-          "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}' '{{ user `vbox_version` }}' '{{ user `vm_type` }}' "
-         }
-       }
+      ]
      }
   ],
   "builders": [
     {
+      "name": "vbox",
       "type": "virtualbox-iso",
       "boot_command": [
         "<enter><wait><f6><esc><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
@@ -41,7 +38,7 @@
         "language=en ",
         "country=GB ",
         "locale=en_GB ",
-        "noapic hostname={{env `ATLAS_NAME`}} ",
+        "noapic hostname={{user `vm_name`}} ",
         "console-setup/layoutcode=gb ",
         "noprompt --<enter>"
       ],
@@ -52,13 +49,11 @@
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "headless": true,
       "http_directory": "http",
-      "http_port_max": "{{user `http_port_max`}}",
-      "http_port_min": "{{user `http_port_min`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_interface": "sata",
       "iso_url": "{{user `iso_file`}}",
-      "output_directory": "output-{{env `ATLAS_NAME` }}-{{isotime \"2006-01-02\"}}",
+      "output_directory": "output-{{user `vm_name` }}-{{isotime \"2006-01-02\"}}",
       "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
@@ -86,7 +81,7 @@
         "vagrantfile_template": "Vagrantfile.template"
       },
       {
-        "artifact": "{{env `ATLAS_USERNAME`}}/{{env `ATLAS_NAME`}}",
+        "artifact": "{{user `atlas_username`}}/{{user `vm_name`}}",
         "artifact_type": "vagrant.box",
         "metadata": {
           "created_at": "{{timestamp}}",
