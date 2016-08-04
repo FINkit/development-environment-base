@@ -1,6 +1,38 @@
 {
+  "variables": {
+    "atlas_name": "{{env `ATLAS_NAME`}}",
+    "atlas_username": "{{env `ATLAS_USERNAME`}}",
+    "boot_wait": "3s",
+    "disk_size": "7500",
+    "headless": "false",
+    "hostname": "{{env `ATLAS_NAME`}}",
+    "domain": "",
+    "http_directory": "http",
+    "http_port_max": "9000",
+    "http_port_min": "8000",
+    "iso_checksum": "86aa35a986eba6e5ad30e3d486d57efe6803ae7ea4859b0216953e9e62871131",
+    "iso_checksum_type": "sha256",
+    "iso_file": "ubuntu-15.10-server-amd64.iso",
+    "iso_path_external": "http://releases.ubuntu.com/15.10",
+    "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
+    "preseed_file": "base.seed",
+    "ram_size": "512",
+    "shutdown_timeout": "5m",
+    "ssh_host_port_max": "7000",
+    "ssh_host_port_min": "6000",
+    "ssh_port": "22",
+    "ssh_username": "vagrant",
+    "ssh_wait_timeout": "15m",
+    "sudo_password": "vagrant",
+    "vagrant_box_file": "build/{{isotime \"2006-01-02-15-10\"}}/{{env `ATLAS_NAME`}}.box",
+    "vagrantfile_template": "Vagrantfile.template",
+    "vm_name": "{{env `ATLAS_NAME`}}",
+    "vnc_port_max": "6000",
+    "vnc_port_min": "5900"
+  },
   "builders": [
     {
+      "type": "virtualbox-iso",
       "boot_command": [
         "<enter><wait><f6><esc><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
         "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
@@ -44,7 +76,6 @@
       "ssh_port": "{{user `ssh_port`}}",
       "ssh_username": "{{user `ssh_username`}}",
       "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
-      "type": "virtualbox-iso",
       "vboxmanage": [
         [
           "modifyvm",
@@ -91,64 +122,21 @@
     ]
   ],
   "provisioners": [
-    {
-      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
-      "inline": [
-        "apt-get clean"
-      ],
-      "type": "shell"
-    },
-    {
-      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
-      "only": [
-        "vbox"
-      ],
-      "override": {
-        "vbox": {
-          "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
-        }
-      },
+     {
+      "type": "shell",
       "scripts": [
         "scripts/enable_passwordless_sudo.sh",
         "scripts/clean_ubuntu_cache.sh",
         "scripts/zero_image_drive.sh"
       ],
-      "type": "shell"
-    }
+      "override": {
+        "virtualbox-iso": {
+          "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}' '{{ user `VBOX_VERSION` }}' '{{ user `VM_TYPE` }}' "
+         }
+       }
   ],
   "push": {
     "name": "cooperc/wily64-developer-environment",
     "vcs": true
-  },
-  "variables": {
-    "atlas_name": "{{env `ATLAS_NAME`}}",
-    "atlas_username": "{{env `ATLAS_USERNAME`}}",
-    "boot_wait": "3s",
-    "disk_size": "7500",
-    "headless": "false",
-    "hostname": "{{env `ATLAS_NAME`}}",
-    "domain": "",
-    "http_directory": "http",
-    "http_port_max": "9000",
-    "http_port_min": "8000",
-    "iso_checksum": "86aa35a986eba6e5ad30e3d486d57efe6803ae7ea4859b0216953e9e62871131",
-    "iso_checksum_type": "sha256",
-    "iso_file": "ubuntu-15.10-server-amd64.iso",
-    "iso_path_external": "http://releases.ubuntu.com/15.10",
-    "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
-    "preseed_file": "base.seed",
-    "ram_size": "512",
-    "shutdown_timeout": "5m",
-    "ssh_host_port_max": "7000",
-    "ssh_host_port_min": "6000",
-    "ssh_port": "22",
-    "ssh_username": "vagrant",
-    "ssh_wait_timeout": "15m",
-    "sudo_password": "vagrant",
-    "vagrant_box_file": "build/{{isotime \"2006-01-02-15-10\"}}/{{env `ATLAS_NAME`}}.box",
-    "vagrantfile_template": "Vagrantfile.template",
-    "vm_name": "{{env `ATLAS_NAME`}}",
-    "vnc_port_max": "6000",
-    "vnc_port_min": "5900"
   }
 }
