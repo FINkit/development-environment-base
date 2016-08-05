@@ -5,6 +5,7 @@
     "iso_checksum_type": "sha256",
     "iso_file": "http://releases.ubuntu.com/15.10/ubuntu-15.10-server-amd64.iso",
     "preseed_file": "base.seed",
+    "sudo_password": "vagrant",
     "vagrant_box_file": "build/{{isotime \"2006-01-02-15-10\"}}/{{env `ATLAS_NAME`}}.box",
     "vm_name": "{{env `ATLAS_NAME`}}",
     "vm_type": "Ubuntu_64",
@@ -15,12 +16,16 @@
   },
   "provisioners": [
      {
-      "type": "shell",
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "only": [
+        "vbox"
+      ],
       "scripts": [
         "scripts/enable_passwordless_sudo.sh",
         "scripts/clean_ubuntu_cache.sh",
         "scripts/zero_image_drive.sh"
-      ]
+      ],
+      "type": "shell"
      }
   ],
   "builders": [
@@ -32,15 +37,13 @@
         "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
         "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
         "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-        "/install/vmlinuz ",
-        "initrd=/install/initrd.gz ",
-        "auto url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
-        "language=en ",
-        "country=GB ",
-        "locale=en_GB ",
-        "noapic hostname={{user `vm_name`}} ",
-        "console-setup/layoutcode=gb ",
-        "noprompt --<enter>"
+        " /install/vmlinuz",
+        " debconf/priority=critical",
+        " locale=en_GB console-setup/layoutcode=gb",
+        " noapic hostname={{user `vm_name`}}",
+        " auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `preseed_file`}}",
+        " initrd=/install/initrd.gz",
+        " -- <enter>"
       ],
       "boot_wait": "10s",
       "disk_size": "{{user `vm_disk_size`}}",
@@ -56,7 +59,7 @@
       "output_directory": "output-{{user `vm_name` }}-{{isotime \"2006-01-02\"}}",
       "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
       "ssh_username": "vagrant",
-      "ssh_password": "vagrant",
+      "ssh_password": "{{user `sudo_password`}}",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
       "vboxmanage": [
