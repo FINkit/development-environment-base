@@ -26,6 +26,18 @@
         "scripts/zero_image_drive.sh"
       ],
       "type": "shell"
+     },
+     {
+      "type": "shell",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "scripts/ansible.sh"
+     },
+     {
+        "type": "ansible-local",
+        "playbook_file": "./ansible/main.yml",
+        "role_paths": [
+          "./ansible/roles/check"
+        ]
      }
   ],
   "builders": [
