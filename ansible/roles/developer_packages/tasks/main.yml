@@ -1,5 +1,95 @@
 ---
+  - name: update
+    apt:
+      upgrade=dist
+
   - name: install git
     apt:
       name=git
       state=present
+
+  - name: install gitk
+    apt:
+      name=gitk
+      state=present
+
+  - name: install putty-tools
+    apt:
+      name=putty-tools
+      state=present
+
+  - name: install dos2unix
+    apt:
+      name=dos2unix
+      state=present
+
+  - name: install wmctrl
+    apt:
+      name=wmctrl
+      state=present
+
+  - name: install byzanz
+    apt:
+      name=byzanz
+      state=present
+
+  - name: install alien
+    apt:
+      name=alien
+      state=present
+
+  - name: install tree
+    apt:
+      name=tree
+      state=present
+
+  - name: install jq
+    apt:
+      name=jq
+      state=present
+
+  - name: install xmlstarlet
+    apt:
+      name=xmlstarlet
+      state=present
+
+  - name: install multitail
+    apt:
+      name=multitail
+      state=present
+
+  - name: install groovy
+    apt:
+      name=groovy
+      state=present
+
+  - name: install golang
+    apt:
+      name=golang
+      state=present
+
+  - name: install ldap-utils
+    apt:
+      name=ldap-utils
+      state=present
+
+  - name: install firefox
+    apt:
+      name=firefox
+      state=present
+
+  - name: install openjdk-8-jdk
+    apt:
+      name=openjdk-8-jdk
+      state=present
+
+  - name: install ant
+    apt:
+      name=ant
+      state=present
+
+  - name: install gnome-terminal
+    apt:
+      name=gnome-terminal
+      state=present
+
