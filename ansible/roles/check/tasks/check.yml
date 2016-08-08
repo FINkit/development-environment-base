@@ -1,4 +1,0 @@
----
-  - name: check
-    command:
-      ls -l /var

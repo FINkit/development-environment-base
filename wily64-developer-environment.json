@@ -36,7 +36,7 @@
         "type": "ansible-local",
         "playbook_file": "./ansible/main.yml",
         "role_paths": [
-          "./ansible/roles/check"
+          "./ansible/roles/developer_packages"
         ]
      }
   ],
