@@ -82,7 +82,7 @@
       "virtualbox_version_file": ".vbox_version"
     }
   ],
-  "description": "A developer environment using the wily64 ubuntu OS",
+  "description": "A developer environment using the Ubuntu OS",
   "post-processors": [
     [
       {
@@ -110,7 +110,7 @@
     ]
   ],
   "push": {
-    "name": "cooperc/wily64-developer-environment",
+    "name": "cooperc/developer-environment",
     "vcs": true
   }
 }
