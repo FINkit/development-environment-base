@@ -1,4 +1,3 @@
-# wily64-developer-environment
-[![Build Status](https://travis-ci.org/cagiti/wily64-developer-environment.svg)](https://travis-ci.org/cagiti/wily64-developer-environment)
+# developer-environment
 
-A developer environment using ubuntu wily 64bit
+A developer environment using ubuntu, installing packages and software to provide a base packer box for vagrant consumption.
