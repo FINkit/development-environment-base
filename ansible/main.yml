@@ -4,3 +4,5 @@
   become: yes
   roles:
     - developer_packages
+    - docker_service
+    - docker_compose

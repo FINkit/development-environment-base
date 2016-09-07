@@ -36,7 +36,9 @@
         "type": "ansible-local",
         "playbook_file": "./ansible/main.yml",
         "role_paths": [
-          "./ansible/roles/developer_packages"
+          "./ansible/roles/developer_packages",
+          "./ansible/roles/docker_service",
+          "./ansible/roles/docker_compose"
         ]
      }
   ],
