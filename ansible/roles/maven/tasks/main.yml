@@ -1,9 +1,14 @@
 ---
-  - name: download, decompress and unarchive the binary
+  - name: download the file
+    get_url:
+      url="http://mirrors.ukfast.co.uk/sites/ftp.apache.org/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz"
+      dest="/opt/apache-maven-{{ maven_version }}.tar.gz"
+      checksum="md5:{{ maven_checksum }}"
+
+  - name: decompress and unarchive the binary
     unarchive:
-      src="http://mirrors.ukfast.co.uk/sites/ftp.apache.org/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz"
-      dest="/opt/"
-      remote_src=yes
+      src="/opt/apache-maven-{{ maven_version }}.tar.gz"
+      dest=/opt
       owner=vagrant
 
   - name: "Define M2_HOME"
