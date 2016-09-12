@@ -1,5 +1,7 @@
 ---
 - hosts: all
+  vars:
+    maven_version: "3.3.9"
   gather_facts: yes
   become: yes
   roles:
@@ -7,3 +9,4 @@
     - docker_service
     - docker_compose
     - cf_cli
+    - maven

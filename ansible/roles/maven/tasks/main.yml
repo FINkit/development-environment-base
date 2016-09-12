@@ -1,0 +1,19 @@
+---
+  - name: download, decompress and unarchive the binary
+    unarchive:
+      src="http://mirrors.ukfast.co.uk/sites/ftp.apache.org/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz"
+      dest="/opt/"
+      remote_src=yes
+      owner=vagrant
+
+  - name: "Define M2_HOME"
+    lineinfile:
+      dest=/etc/environment
+      regexp=^M2_HOME=
+      line=M2_HOME=/opt/apache-maven-{{ maven_version }}/
+
+  - name: "Define M2"
+    lineinfile:
+      dest=/etc/environment
+      regexp=^M2=
+      line=M2=/opt/apache-maven-{{ maven_version }}/bin
