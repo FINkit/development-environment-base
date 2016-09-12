@@ -6,3 +6,4 @@
     - developer_packages
     - docker_service
     - docker_compose
+    - cf_cli
