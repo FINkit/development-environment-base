@@ -93,3 +93,17 @@
       name=gnome-terminal
       state=present
 
+  - name: install ngrep
+    apt:
+      name=ngrep
+      state=present
+
+  - name: install nmap
+    apt:
+      name=nmap
+      state=present
+
+  - name: install sslscan
+    apt:
+      name=sslscan
+      state=present
