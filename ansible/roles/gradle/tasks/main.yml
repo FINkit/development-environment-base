@@ -1,0 +1,12 @@
+---
+  - name: "add gradle repository"
+    apt_repository:
+      repo='ppa:cwchien/gradle'
+
+  - name: "apt update"
+    apt:
+      upgrade=dist
+
+  - name: "install gradle"
+    apt:
+      name=gradle
