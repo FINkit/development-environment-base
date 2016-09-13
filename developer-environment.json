@@ -40,7 +40,8 @@
           "./ansible/roles/docker_service",
           "./ansible/roles/docker_compose",
           "./ansible/roles/cf_cli",
-          "./ansible/roles/maven"
+          "./ansible/roles/maven",
+          "./ansible/roles/sbt"
         ]
      }
   ],
