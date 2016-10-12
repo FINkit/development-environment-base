@@ -1,0 +1,39 @@
+---
+  - name: get uname information
+    shell: uname -r
+    ignore_errors: yes
+    register: uname_value
+
+  - name: install necessary packages for virtualbox guest additions
+    apt:
+      name={{ item }}
+      state=present
+    with_items:
+      - linux-headers-{{ uname_value.stdout }}
+      - build-essential
+      - dkms
+    become: true
+
+  - name: create mount directory
+    file:
+      path=/media/VBoxGuestAdditions
+      state=directory
+      mode=0755
+    become: true
+
+  - name: mount /media/VBoxGuestAdditions
+    shell: mount -o loop,ro /home/vagrant/VBoxGuestAdditions.iso /media/VBoxGuestAdditions/
+    become: true
+
+  - name: install
+    shell: /media/VBoxGuestAdditions/VBoxLinuxAdditions.run
+    become: true
+
+  - name: unmount /media/VBoxGuestAdditions
+    shell: umount /media/VBoxGuestAdditions
+    become: true
+
+  - name: remove VBoxGuestAdditions
+    file:
+      path=/home/vagrant/VBoxGuestAdditions.iso
+      state=absent

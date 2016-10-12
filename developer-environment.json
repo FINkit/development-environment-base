@@ -42,7 +42,8 @@
           "./ansible/roles/cf_cli",
           "./ansible/roles/maven",
           "./ansible/roles/sbt",
-          "./ansible/roles/gradle"
+          "./ansible/roles/gradle",
+          "./ansible/roles/virtualbox_guest_additions"
         ]
      }
   ],
@@ -67,7 +68,8 @@
       "disk_size": "{{user `vm_disk_size`}}",
       "format": "ova",
       "guest_os_type": "{{user `vm_type`}}",
-      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_additions_path": "VBoxGuestAdditions.iso",
+      "guest_additions_mode": "upload",
       "headless": true,
       "http_directory": "http",
       "iso_checksum": "{{user `iso_checksum`}}",
