@@ -42,7 +42,8 @@
           "./ansible/roles/cf_cli",
           "./ansible/roles/maven",
           "./ansible/roles/sbt",
-          "./ansible/roles/gradle"
+          "./ansible/roles/gradle",
+          "./ansible/roles/intellij"
         ]
      }
   ],

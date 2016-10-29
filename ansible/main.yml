@@ -5,6 +5,8 @@
     maven_version: "3.3.9"
     maven_checksum: "516923b3955b6035ba6b0a5b031fbd8b"
     sbt_version: "0.13.11"
+    intellij_version: "2016.2.5"
+    intellij_config_path: "~vagrant/.IdeaIC{{ intellij_version }}"
   gather_facts: yes
   become: yes
   roles:
@@ -15,3 +17,4 @@
     - maven
     - sbt
     - gradle
+    - intellij

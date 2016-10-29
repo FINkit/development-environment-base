@@ -1,0 +1,21 @@
+---
+  - name: create intelli directory
+    file:
+      path=/opt/intellij/{{ intellij_version }}/
+      state=directory
+      mode=0777
+
+  - name: download the file
+    get_url:
+      url="https://download.jetbrains.com/idea/ideaIC-{{ intellij_version }}.tar.gz"
+      dest="/opt/intellij/"
+
+  - name: unarchive
+    shell:
+      tar zxf "/opt/intellij/ideaIC-{{ intellij_version }}.tar.gz" -C "/opt/intellij/{{ intellij_version }}" --strip 1 && chown -R vagrant:vagrant /opt/intellij
+
+  - name: add symlink
+    file:
+      src="/opt/intellij/{{ intellij_version }}/bin/idea.sh"
+      dest="/usr/bin/intellij"
+      state=link
