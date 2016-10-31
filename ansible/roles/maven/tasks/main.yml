@@ -26,5 +26,5 @@
   - name: Update PATH
     replace:
       dest=/etc/environment
-      regex='(\s+PATH.*)(")$'
+      regexp='(\s+PATH.*)(")$'
       replace='\1:/opt/apache-maven-{{ maven_version }}/bin\2'
