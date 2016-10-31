@@ -11,13 +11,13 @@
       dest=/opt
       owner=vagrant
 
-  - name: "Define M2_HOME"
+  - name: Define M2_HOME
     lineinfile:
       dest=/etc/environment
       regexp=^M2_HOME=
       line=M2_HOME=/opt/apache-maven-{{ maven_version }}/
 
-  - name: "Define M2"
+  - name: Define M2
     lineinfile:
       dest=/etc/environment
       regexp=^M2=
@@ -26,5 +26,6 @@
   - name: Update PATH
     replace:
       dest=/etc/environment
-      regexp='(\s+PATH.*)(")$'
+      regexp='^(PATH.*)(")$'
       replace='\1:/opt/apache-maven-{{ maven_version }}/bin\2'
+    become: true
