@@ -43,7 +43,8 @@
           "./ansible/roles/maven",
           "./ansible/roles/sbt",
           "./ansible/roles/gradle",
-          "./ansible/roles/intellij"
+          "./ansible/roles/intellij",
+          "./ansible/roles/unity_desktop"
         ]
      }
   ],
