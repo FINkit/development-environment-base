@@ -30,9 +30,16 @@
   - name: update icon file
     lineinfile:
       dest=/tmp/jetbrains-idea-ce.desktop
-      regexp='REPLACE_INTELLIJ_PATH'
-      line='/opt/intellij/{{ intellij_version }}'
+      regexp=REPLACE_INTELLIJ_PATH
+      line=/opt/intellij/{{ intellij_version }}
       state=present
+
+  - name: ensure desktop shortcut directory exists
+    file:
+      path=/usr/share/desktop-directories/
+      state=directory
+      mode=0755
+    become: true
 
   - name: set intellij icon
     shell: xdg-desktop-menu install --novendor /tmp/jetbrains-idea-ce.desktop

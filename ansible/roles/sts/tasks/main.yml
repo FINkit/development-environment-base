@@ -30,9 +30,16 @@
   - name: update icon file
     lineinfile:
       dest=/tmp/spring-sts.desktop
-      regexp='REPLACE_STS_PATH'
-      line='/opt/sts/sts-{{ sts_version }}/sts-{{ sts_version }}.RELEASE/STS'
+      regexp=REPLACE_STS_PATH
+      line=/opt/sts/sts-{{ sts_version }}/sts-{{ sts_version }}.RELEASE/STS
       state=present
+
+  - name: ensure desktop shortcut directory exists
+    file:
+      path=/usr/share/desktop-directories/
+      state=directory
+      mode=0755
+    become: true
 
   - name: set sts icon
     shell: xdg-desktop-menu install --novendor /tmp/spring-sts.desktop
