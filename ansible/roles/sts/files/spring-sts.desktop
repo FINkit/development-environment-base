@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Eclipse (STS)
+Icon=REPLACE_STS_PATH/icon.xpm
+Exec="REPLACE_STS_PATH/STS" %f
+Comment=Spring Source Tool Suite
+Categories=Development;IDE;
+Terminal=false
+StartupWMClass=spring-sts

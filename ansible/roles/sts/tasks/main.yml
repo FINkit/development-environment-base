@@ -19,3 +19,20 @@
       src="/opt/sts/sts-{{ sts_version }}/sts-{{ sts_version }}.RELEASE/STS"
       dest="/usr/bin/STS"
       state=link
+
+  - name: upload icon file
+    copy:
+      src={{ item.src }}
+      dest={{ item.dest }}
+    with_items:
+    - { src: 'spring-sts.desktop', dest: '/tmp/spring-sts.desktop' }
+
+  - name: update icon file
+    lineinfile:
+      path=/tmp/spring-sts.desktop
+      regexp='REPLACE_STS_PATH'
+      line='/opt/sts/sts-{{ sts_version }}/sts-{{ sts_version }}.RELEASE/STS'
+      state=present
+
+  - name: set sts icon
+    shell: sudo xdg-desktop-menu install --novendor /tmp/spring-sts.desktop
