@@ -19,3 +19,21 @@
       src="/opt/intellij/{{ intellij_version }}/bin/idea.sh"
       dest="/usr/bin/intellij"
       state=link
+
+  - name: upload icon file
+    copy:
+      src={{ item.src }}
+      dest={{ item.dest }}
+    with_items:
+    - { src: 'jetbrains-idea-ce.desktop', dest: '/tmp/jetbrains-idea-ce.desktop' }
+
+  - name: update icon file
+    lineinfile:
+      dest=/tmp/jetbrains-idea-ce.desktop
+      regexp='REPLACE_INTELLIJ_PATH'
+      line='/opt/intellij/{{ intellij_version }}'
+      state=present
+
+  - name: set intellij icon
+    shell: xdg-desktop-menu install --novendor /tmp/jetbrains-idea-ce.desktop
+    become: true
