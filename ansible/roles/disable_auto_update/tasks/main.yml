@@ -1,0 +1,7 @@
+---
+  - name: disable daily apt unattended updates
+    lineinfile:
+      dest=/etc/apt/apt.conf.d/10periodic
+      insertafter=EOF
+      state=present
+      line='APT::Periodic::Enable "0";'

@@ -10,6 +10,7 @@
   gather_facts: yes
   become: yes
   roles:
+    - disable_auto_update
     - developer_packages
     - docker_service
     - docker_compose
