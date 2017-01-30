@@ -7,6 +7,8 @@
     sbt_version: "0.13.11"
     intellij_version: "2016.2.5"
     intellij_config_path: "~vagrant/.IdeaIC{{ intellij_version }}"
+    sts_version: "3.8.3"
+    eclipse_version: "4.6.2"
   gather_facts: yes
   become: yes
   roles:
@@ -19,4 +21,5 @@
     - sbt
     - gradle
     - intellij
+    - sts
     - unity_desktop

@@ -1,0 +1,21 @@
+---
+  - name: create eclipse directory
+    file:
+      path=/opt/sts/sts-{{ sts_version }}/
+      state=directory
+      mode=0777
+
+  - name: download the file
+    get_url:
+        url="http://download.springsource.com/release/STS/{{ sts_version }}.RELEASE/dist/e4.6/spring-tool-suite-{{sts_version }}.RELEASE-e{{ eclipse_version }}-linux-gtk-x86_64.tar.gz"
+        dest="/opt/sts/"
+
+  - name: unarchive
+    shell:
+      tar zxf "/opt/sts/spring-tool-suite-{{sts_version }}.RELEASE-e{{ eclipse_version }}-linux-gtk-x86_64.tar.gz" -C "/opt/sts/sts-{{ sts_version }}" --strip 1 && chown -R vagrant:vagrant /opt/sts/
+
+  - name: add symlink
+    file:
+      src="/opt/sts/sts-{{ sts_version }}/sts-{{ sts_version }}.RELEASE/STS"
+      dest="/usr/bin/STS"
+      state=link
