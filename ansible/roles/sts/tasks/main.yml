@@ -35,4 +35,5 @@
       state=present
 
   - name: set sts icon
-    shell: sudo xdg-desktop-menu install --novendor /tmp/spring-sts.desktop
+    shell: xdg-desktop-menu install --novendor /tmp/spring-sts.desktop
+    become: true

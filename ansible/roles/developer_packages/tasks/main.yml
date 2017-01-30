@@ -31,3 +31,4 @@
       - sslscan
       - graphviz
       - zram-config
+      - xdg-utils
