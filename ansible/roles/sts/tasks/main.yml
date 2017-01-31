@@ -28,11 +28,10 @@
     - { src: 'spring-sts.desktop', dest: '/tmp/spring-sts.desktop' }
 
   - name: update icon file
-    lineinfile:
+    replace:
       dest=/tmp/spring-sts.desktop
-      regexp=REPLACE_STS_PATH
-      line=/opt/sts/sts-{{ sts_version }}/sts-{{ sts_version }}.RELEASE/STS
-      state=present
+      regexp='^(.*)REPLACE_STS_PATH(.*)$'
+      replace=/opt/sts/sts-{{ sts_version }}/sts-{{ sts_version }}.RELEASE/STS
 
   - name: ensure desktop shortcut directory exists
     file:

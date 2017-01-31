@@ -28,11 +28,10 @@
     - { src: 'jetbrains-idea-ce.desktop', dest: '/tmp/jetbrains-idea-ce.desktop' }
 
   - name: update icon file
-    lineinfile:
+    replace:
       dest=/tmp/jetbrains-idea-ce.desktop
-      regexp=REPLACE_INTELLIJ_PATH
-      line=/opt/intellij/{{ intellij_version }}
-      state=present
+      regexp='^(.*)REPLACE_INTELLIJ_PATH(.*)$'
+      replace=/opt/intellij/{{ intellij_version }}
 
   - name: ensure desktop shortcut directory exists
     file:
