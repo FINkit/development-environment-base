@@ -31,7 +31,7 @@
     replace:
       dest=/tmp/jetbrains-idea-ce.desktop
       regexp='^(.*)REPLACE_INTELLIJ_PATH(.*)$'
-      replace=/opt/intellij/{{ intellij_version }}
+      replace='\1/opt/intellij/{{ intellij_version }}\2'
 
   - name: ensure desktop shortcut directory exists
     file:
