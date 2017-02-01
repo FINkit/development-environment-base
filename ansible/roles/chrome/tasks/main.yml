@@ -1,0 +1,28 @@
+---
+  - name: add google key to apt
+    apt_key:
+      url=https://dl-ssl.google.com/linux/linux_signing_key.pub
+
+  - name: add debian package to sources list
+    lineinfile:
+      dest=/etc/apt/sources.list.d/google.list
+      line='deb http://dl.google.com/linux/chrome/deb/ stable main'
+    
+  - name: update
+    apt:
+      upgrade=dist
+
+  - name: fix packages
+    apt:
+      force=yes
+
+  - name: install google chrome
+    apt:
+      name=google-chrome-stable
+      state=present
+
+  - name: udpate chrome shortcut command
+    replace:
+      dest=/usr/share/applications/google-chrome.desktop
+      regexp='^(.*google-chrome-stable.*)$'
+      replace='\1 --disable-gpu'
