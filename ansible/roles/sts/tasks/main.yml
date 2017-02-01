@@ -31,7 +31,7 @@
     replace:
       dest=/tmp/spring-sts.desktop
       regexp='^(.*)REPLACE_STS_PATH(.*)$'
-      replace='\1/opt/sts/sts-{{ sts_version }}/sts-{{ sts_version }}.RELEASE/STS\2'
+      replace='\1/opt/sts/sts-{{ sts_version }}/sts-{{ sts_version }}.RELEASE\2'
 
   - name: ensure desktop shortcut directory exists
     file:
