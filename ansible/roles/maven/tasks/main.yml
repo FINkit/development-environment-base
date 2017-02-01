@@ -29,3 +29,8 @@
       regexp='^(PATH.*)(")$'
       replace='\1:/opt/apache-maven-{{ maven_version }}/bin\2'
     become: true
+
+  - name: remove binary
+    file:
+      path=/opt/apache-maven-{{ maven_version }}.tar.gz
+      state=absent

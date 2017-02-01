@@ -43,3 +43,8 @@
   - name: set intellij icon
     shell: xdg-desktop-menu install --novendor /tmp/jetbrains-idea-ce.desktop
     become: true
+
+  - name: remove binaries
+    file:
+      path=/opt/intellij/ideaIC-{{ intellij_version }}.tar.gz
+      state=absent

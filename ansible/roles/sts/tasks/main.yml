@@ -43,3 +43,8 @@
   - name: set sts icon
     shell: xdg-desktop-menu install --novendor /tmp/spring-sts.desktop
     become: true
+
+  - name: remove the binaries
+    file:
+      path=/opt/sts/spring-tool-suite-{{sts_version }}.RELEASE-e{{ eclipse_version }}-linux-gtk-x86_64.tar.gz
+      state=absent
