@@ -32,3 +32,4 @@
       - graphviz
       - zram-config
       - xdg-utils
+      - chromium-browser
