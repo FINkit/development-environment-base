@@ -9,14 +9,15 @@
       line='deb http://dl.google.com/linux/chrome/deb/ stable main'
       state=present
       create=yes
+    register: added_debian_package
     
   - name: update
     apt:
       upgrade=dist
 
   - name: fix packages
-    apt:
-      force=yes
+    shell: apt-get -qq -f install
+    when: added_debian_package.changed
 
   - name: install google chrome
     apt:
