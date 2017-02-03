@@ -1,9 +1,9 @@
 ---
   - name: Install docker-compose via curl
-    shell: curl -L https://github.com/docker/compose/releases/download/1.5.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+    shell: curl -L https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
       creates=/usr/local/bin/docker-compose
 
   - name: Make docker-compose executable
     file:
       path=/usr/local/bin/docker-compose
-      mode="u+x,g+x"
+      mode="a+x"
