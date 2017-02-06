@@ -1,0 +1,4 @@
+---
+  - name: "install atom using deb link"
+    apt:
+      deb="https://github.com/atom/atom/releases/download/v{{atom_version}}/atom-amd64.deb"

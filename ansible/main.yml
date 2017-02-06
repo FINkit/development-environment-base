@@ -10,11 +10,13 @@
     sts_version: "3.8.3"
     eclipse_version: "4.6.2"
     docker_compose_version: "1.10.1"
+    atom_version: "1.13.1"
   gather_facts: yes
   become: yes
   roles:
     - disable_auto_update
     - developer_packages
+    - atom
     - docker_service
     - docker_compose
     - cf_cli
