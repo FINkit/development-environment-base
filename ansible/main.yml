@@ -4,7 +4,7 @@
     cf_cli_version: "6.21.1"
     maven_version: "3.3.9"
     maven_checksum: "516923b3955b6035ba6b0a5b031fbd8b"
-    sbt_version: "0.13.11"
+    sbt_version: "0.13.13"
     intellij_version: "2016.3.4"
     intellij_config_path: "~vagrant/.IdeaIC2016.3"
     sts_version: "3.8.3"
