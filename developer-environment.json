@@ -80,6 +80,7 @@
       "iso_url": "{{user `iso_file`}}",
       "output_directory": "output-{{user `vm_name` }}-{{isotime \"2006-01-02\"}}",
       "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
+      "shutdown_timeout": "5m",
       "ssh_username": "vagrant",
       "ssh_password": "{{user `sudo_password`}}",
       "ssh_port": 22,
