@@ -1,11 +1,11 @@
 ---
-  - name: install packages
+  - name: install ubuntu-desktop
     apt:
       name=ubuntu-desktop
       state=present
       install_recommends=no
 
-  - name: install packages
+  - name: install unity packages
     apt:
       name={{ item }}
       state=present
