@@ -13,9 +13,11 @@
     dest: "/opt/gradle"
 
 - name: Add to path
-  shell: ln -s /opt/gradle/gradle-{{gradle_version}}/bin/gradle /usr/local/bin/gradle creates=/usr/local/bin/gradle
-  sudo: yes
-
+  file: src="/opt/gradle/gradle-{{gradle_version}}/bin/gradle"
+    dest=/usr/local/bin/gradle
+    owner=root
+    group=root
+    state=link
 
 - name: Delete zip
   file: path=/opt/gradle/gradle-{{gradle_version}}-bin.zip state=absent
