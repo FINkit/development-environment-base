@@ -1,12 +1,21 @@
 ---
-  - name: "add gradle repository"
-    apt_repository:
-      repo='ppa:cwchien/gradle'
+- name: Create dir
+  file: path=/opt/gradle state=directory
+  sudo: yes
 
-  - name: "apt update"
-    apt:
-      upgrade=dist
+- name: Download
+  get_url: dest="/opt/gradle" url=https://services.gradle.org/distributions/gradle-{{gradle_version}}-bin.zip
+  sudo: yes
 
-  - name: "install gradle"
-    apt:
-      name=gradle
+- name: Extract zip
+  unarchive:
+    src: "/opt/gradle/gradle-{{gradle_version}}-bin.zip"
+    dest: "/opt/gradle"
+
+- name: Add to path
+  shell: ln -s /opt/gradle/gradle-{{gradle_version}}/bin/gradle /usr/local/bin/gradle creates=/usr/local/bin/gradle
+  sudo: yes
+
+
+- name: Delete zip
+  file: path=/opt/gradle/gradle-{{gradle_version}}-bin.zip state=absent

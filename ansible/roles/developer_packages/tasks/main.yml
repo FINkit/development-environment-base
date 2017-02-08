@@ -33,3 +33,4 @@
       - zram-config
       - xdg-utils
       - chromium-browser
+      - unzip
