@@ -1,11 +1,11 @@
 ---
 - name: Create dir
   file: path=/opt/gradle state=directory
-  sudo: yes
+  become: true
 
 - name: Download
   get_url: dest="/opt/gradle" url=https://services.gradle.org/distributions/gradle-{{gradle_version}}-bin.zip
-  sudo: yes
+  become: true
 
 - name: Extract zip
   unarchive:
