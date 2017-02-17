@@ -1,4 +1,4 @@
 ---
   - name: "ensure package for CloudFoundry CLI is installed"
     apt:
-      deb="https://s3.amazonaws.com/go-cli/releases/v{{ cf_cli_version }}/cf-cli-installer_{{ cf_cli_version }}_x86-64.deb"
+      deb="https://cli.run.pivotal.io/stable?release=debian64&version={{cf_cli_version}}&source=github-rel"
