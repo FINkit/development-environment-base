@@ -35,3 +35,4 @@
       - xdg-utils
       - chromium-browser
       - unzip
+      - gnome-system-monitor
