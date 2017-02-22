@@ -7,12 +7,12 @@
 
   - name: download the file
     get_url:
-      url="https://download.jetbrains.com/idea/ideaIC-{{ intellij_version }}.tar.gz"
+      url="https://download.jetbrains.com/idea/ideaIC-{{ intellij_version }}-no-jdk.tar.gz"
       dest="/opt/intellij/"
 
   - name: unarchive
     shell:
-      tar zxf "/opt/intellij/ideaIC-{{ intellij_version }}.tar.gz" -C "/opt/intellij/{{ intellij_version }}" --strip 1 && chown -R vagrant:vagrant /opt/intellij
+      tar zxf "/opt/intellij/ideaIC-{{ intellij_version }}-no-jdk.tar.gz" -C "/opt/intellij/{{ intellij_version }}" --strip 1 && chown -R vagrant:vagrant /opt/intellij
 
   - name: add symlink
     file:
@@ -46,5 +46,5 @@
 
   - name: remove binaries
     file:
-      path=/opt/intellij/ideaIC-{{ intellij_version }}.tar.gz
+      path=/opt/intellij/ideaIC-{{ intellij_version }}-no-jdk.tar.gz
       state=absent
