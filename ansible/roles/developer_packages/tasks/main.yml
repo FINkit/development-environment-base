@@ -2,11 +2,13 @@
   - name: update
     apt:
       upgrade=dist
+      autoremove=yes
 
   - name: install packages
     apt:
       name={{ item }}
       state=present
+      autoremove=yes
     with_items:
       - git
       - gitk

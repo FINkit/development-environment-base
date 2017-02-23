@@ -7,3 +7,4 @@
     apt:
       deb="http://dl.bintray.com/sbt/debian/sbt-{{ sbt_version }}.deb"
       install_recommends=no
+      autoremove=yes

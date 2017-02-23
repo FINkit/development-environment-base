@@ -4,11 +4,13 @@
       name=ubuntu-desktop
       state=present
       install_recommends=no
+      autoremove=yes
 
   - name: install unity packages
     apt:
       name={{ item }}
       state=present
+      autoremove=yes
     with_items:
       - unity-lens-*
       - unity-scope-home
