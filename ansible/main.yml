@@ -1,7 +1,7 @@
 ---
 - hosts: all
   vars:
-    cf_cli_version: "6.24.0"
+    cf_cli_version: "6.25.0"
     maven_version: "3.3.9"
     maven_checksum: "516923b3955b6035ba6b0a5b031fbd8b"
     sbt_version: "0.13.13"
