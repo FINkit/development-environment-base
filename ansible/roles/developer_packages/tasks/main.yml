@@ -32,6 +32,7 @@
       - ngrep
       - nmap
       - sslscan
+      - dnsutils
       - graphviz
       - zram-config
       - xdg-utils
