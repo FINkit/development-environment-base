@@ -1,0 +1,17 @@
+---
+  - name: Download go archive
+    get_url:
+      url: https://storage.googleapis.com/golang/go{{ go_version }}.linux-amd64.tar.gz
+      dest: /tmp/
+
+  - name: Unarchive and move go binaries
+    unarchive:
+      src: "/tmp/go{{ go_version }}.linux-amd64.tar.gz"
+      dest: /usr/local/
+
+  - name: Create symlink to gobin
+    file:
+      src: /usr/local/go/bin/go
+      dest: /usr/bin/go
+      state: link
+      force: true
