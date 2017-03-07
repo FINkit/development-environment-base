@@ -23,7 +23,6 @@
       - xmlstarlet
       - multitail
       - groovy
-      - golang
       - ldap-utils
       - firefox
       - openjdk-8-jdk
