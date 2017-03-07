@@ -11,6 +11,7 @@
     docker_compose_version: "1.11.2"
     atom_version: "1.14.4"
     gradle_version: "3.4.1"
+    go_version: "1.7.4"
   gather_facts: yes
   become: yes
   roles:
@@ -26,3 +27,4 @@
     - intellij
     - sts
     - unity_desktop
+    - go
