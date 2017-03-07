@@ -47,7 +47,8 @@
           "./ansible/roles/gradle",
           "./ansible/roles/intellij",
           "./ansible/roles/sts",
-          "./ansible/roles/unity_desktop"
+          "./ansible/roles/unity_desktop",
+          "./ansible/roles/go"
         ]
      }
   ],
