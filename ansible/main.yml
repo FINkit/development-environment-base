@@ -5,7 +5,7 @@
     maven_version: "3.3.9"
     maven_checksum: "516923b3955b6035ba6b0a5b031fbd8b"
     sbt_version: "0.13.13"
-    intellij_version: "2016.3.4"
+    intellij_version: "2016.3.5"
     sts_version: "3.8.3"
     eclipse_version: "4.6.2"
     docker_compose_version: "1.11.2"
