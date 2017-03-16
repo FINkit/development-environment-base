@@ -9,7 +9,7 @@
     sts_version: "3.8.3"
     eclipse_version: "4.6.2"
     docker_compose_version: "1.11.2"
-    atom_version: "1.14.4"
+    atom_version: "1.15.0"
     gradle_version: "3.4.1"
     go_version: "1.7.4"
   gather_facts: yes
