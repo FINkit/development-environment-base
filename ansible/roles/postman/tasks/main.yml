@@ -1,0 +1,39 @@
+---
+  - name: download the file
+    get_url:
+      url="https://dl.pstmn.io/download/latest/linux64"
+      dest="/opt/postman.tar.gz"
+
+  - name: unarchive
+    unarchive:
+      src="/opt/postman.tar.gz"
+      dest="/opt"
+      
+  - name: add symlink
+    file:
+      src="/opt/Postman/Postman"
+      dest="/usr/bin/Postman"
+      state=link
+
+  - name: upload icon file
+    copy:
+      src={{ item.src }}
+      dest={{ item.dest }}
+    with_items:
+    - { src: 'postman.desktop', dest: '/tmp/postman.desktop' }
+
+  - name: ensure desktop shortcut directory exists
+    file:
+      path=/usr/share/desktop-directories/
+      state=directory
+      mode=0755
+    become: true
+
+  - name: set postman icon
+    shell: xdg-desktop-menu install --novendor /tmp/postman.desktop
+    become: true
+
+  - name: remove binaries
+    file:
+      path=/opt/postman.tar.gz
+      state=absent
