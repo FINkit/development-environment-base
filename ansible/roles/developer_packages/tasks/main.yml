@@ -39,3 +39,4 @@
       - unzip
       - gnome-system-monitor
       - baobab
+      - wkhtmltopdf
