@@ -49,7 +49,8 @@
           "./ansible/roles/sts",
           "./ansible/roles/unity_desktop",
           "./ansible/roles/go",
-          "./ansible/roles/postman"
+          "./ansible/roles/postman",
+          "./ansible/roles/gitbook"
         ]
      }
   ],
