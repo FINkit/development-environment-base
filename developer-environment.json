@@ -50,7 +50,8 @@
           "./ansible/roles/unity_desktop",
           "./ansible/roles/go",
           "./ansible/roles/postman",
-          "./ansible/roles/gitbook"
+          "./ansible/roles/gitbook",
+          "./ansible/roles/compliance_masonry"
         ]
      }
   ],

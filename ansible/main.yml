@@ -12,6 +12,7 @@
     atom_version: "1.15.0"
     gradle_version: "3.4.1"
     go_version: "1.8"
+    compliance_masonry_version: "1.1.2"
   gather_facts: yes
   become: yes
   roles:
@@ -30,3 +31,4 @@
     - go
     - postman
     - gitbook
+    - compliance_masonry

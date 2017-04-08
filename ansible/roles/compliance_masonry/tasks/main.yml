@@ -1,0 +1,16 @@
+---
+  - name: download compliance-masonry
+    get_url:
+      url=https://github.com/opencontrol/compliance-masonry/releases/download/v{{ compliance_masonry_version }}/compliance-masonry_{{ compliance_masonry_version }}_linux_amd64.tar.gz
+      dest=/tmp/compliance-masonry.tar.gz
+
+  - name: extract
+    unarchive:
+      src=/tmp/compliance-masonry.tar.gz
+      dest=/tmp
+
+  - name: install
+    copy:
+      src=/tmp/compliance-masonry_{{ compliance_masonry_version }}_linux_amd64/compliance-masonry
+      dest=/usr/local/bin/
+      mode=0755
