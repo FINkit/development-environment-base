@@ -1,0 +1,22 @@
+---
+  - name: install npm
+    apt:
+      name=npm
+      state=present
+
+  - name: install calibre
+    apt:
+      name=calibre
+      state=present
+
+  - name: link
+    file:
+      src=/usr/bin/nodejs
+      dest=/usr/bin/node
+      state=link
+
+  - name: install gitbook-cli
+    npm:
+      name=gitbook-cli
+      state=present
+      global=yes
