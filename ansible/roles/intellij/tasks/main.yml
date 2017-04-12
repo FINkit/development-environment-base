@@ -9,6 +9,7 @@
     get_url:
       url="https://download.jetbrains.com/idea/ideaIC-{{ intellij_version }}-no-jdk.tar.gz"
       dest="/opt/intellij/"
+      checksum="sha256:{{intellij_sha256_checksum}}"
 
   - name: unarchive
     shell:
