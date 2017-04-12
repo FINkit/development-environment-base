@@ -3,6 +3,7 @@
     get_url:
       url: https://storage.googleapis.com/golang/go{{ go_version }}.linux-amd64.tar.gz
       dest: /tmp/
+      checksum: "sha256:{{go_sha256_checksum}}"
 
   - name: Unarchive and move go binaries
     unarchive:
