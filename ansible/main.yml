@@ -8,8 +8,6 @@
     intellij_version: "2017.1.1"
     intellij_sha256_checksum: "3b7f2b906c2a22b3323aba1f9bd4719147f0534e823d4313265c6bcbf92cda60"
     sts_version: "3.8.4"
-    # checksum can be obtained by adding ".sha1" to the download url. Would be nice to automate this
-    sts_sha1_checksum: "a31689848c35cc907abc2775221bee6c457705f7"
     eclipse_version: "4.6.3"
     docker_compose_version: "1.12.0"
     atom_version: "1.15.0"
