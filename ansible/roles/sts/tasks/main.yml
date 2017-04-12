@@ -9,7 +9,7 @@
     get_url:
         url="http://download.springsource.com/release/STS/{{ sts_version }}.RELEASE/dist/e4.6/spring-tool-suite-{{sts_version }}.RELEASE-e{{ eclipse_version }}-linux-gtk-x86_64.tar.gz"
         dest="/opt/sts/"
-	checksum="sha1:{{sts_sha1_checksum}}"
+	checksum="sha:{{ sts_sha1_checksum }}"
 
   - name: unarchive
     shell:
