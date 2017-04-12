@@ -14,7 +14,8 @@
     docker_compose_version: "1.12.0"
     atom_version: "1.15.0"
     gradle_version: "3.5"
-    go_version: "1.8"
+    go_version: "1.8.1"
+    go_sha256_checksum: "a579ab19d5237e263254f1eac5352efcf1d70b9dacadb6d6bb12b0911ede8994"
     compliance_masonry_version: "1.1.2"
   gather_facts: yes
   become: yes
