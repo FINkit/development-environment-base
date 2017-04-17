@@ -16,3 +16,8 @@
       dest: /usr/bin/go
       state: link
       force: true
+
+  - name: Remove binary
+    file:
+      path=/tmp/go{{ go_version }}.linux-amd64.tar.gz
+      state=absent
