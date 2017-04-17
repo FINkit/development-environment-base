@@ -14,3 +14,13 @@
       src=/tmp/compliance-masonry_{{ compliance_masonry_version }}_linux_amd64/compliance-masonry
       dest=/usr/local/bin/
       mode=0755
+
+  - name: delete binary
+    file:
+      path=/tmp/compliance-masonry.tar.gz
+      state=absent
+
+  - name: delete temp files
+    file:
+      path=/tmp/compliance-masonry_{{ compliance_masonry_version }}_linux_amd64/
+      state=absent
