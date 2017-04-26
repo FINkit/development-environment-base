@@ -6,7 +6,7 @@
     maven_checksum: "35c39251d2af99b6624d40d801f6ff02"
     sbt_version: "0.13.15"
     intellij_version: "2017.1.2"
-    intellij_sha256_checksum: "55cb0b0d79b484779c33edb18e969ec683d48867e4bb2014133b54240d49e50e"
+    intellij_sha256_checksum: "77009f9137b63ed903a9272f202a7cf305039af492f66537a3de652c861f2323"
     sts_version: "3.8.4"
     eclipse_version: "4.6.3"
     docker_compose_version: "1.12.0"
