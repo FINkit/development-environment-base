@@ -41,3 +41,4 @@
       - gnome-system-monitor
       - baobab
       - wkhtmltopdf
+      - bash-completion
