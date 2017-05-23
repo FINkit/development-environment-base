@@ -1,0 +1,19 @@
+---
+  - name: Add repo
+    lineinfile:
+      create: yes
+      line: 'deb https://packages.cloud.google.com/apt cloud-sdk-xenial main'
+      path: /etc/apt/sources.list.d/google-cloud-sdk.list
+      mode: 0644
+      state: present
+
+  - name: Install gpg key
+    apt_key:
+      state: present
+      url: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+
+  - name: Install cli
+    apt:
+      name: google-cloud-sdk
+      state: latest
+      update-cache: yes

@@ -51,7 +51,8 @@
           "./ansible/roles/go",
           "./ansible/roles/postman",
           "./ansible/roles/gitbook",
-          "./ansible/roles/compliance_masonry"
+          "./ansible/roles/compliance_masonry",
+          "./ansible/roles/gcloud"
         ]
      }
   ],
