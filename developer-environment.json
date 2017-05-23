@@ -52,7 +52,8 @@
           "./ansible/roles/postman",
           "./ansible/roles/gitbook",
           "./ansible/roles/compliance_masonry",
-          "./ansible/roles/gcloud"
+          "./ansible/roles/gcloud",
+          "./ansible/roles/newrelic"
         ]
      }
   ],
