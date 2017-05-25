@@ -17,6 +17,29 @@
       state: link
       force: true
 
+  - name: Setup workspace
+    file:
+      path: {{ item.path }}
+      state: directory
+      mode: 0755
+    with_items:
+    - { path: '/home/vagrant/go-workspace/src' }
+    - { path: '/home/vagrant/go-workspace/pkg' }
+    - { path: '/home/vagrant/go-workspace/bin' }
+
+  - name: Set GOPATH
+    lineinfile:
+      dest: /etc/environment
+      regexp: ^GOPATH=
+      line: GOPATH=/home/vagrant/go-workspace
+
+  - name: Update PATH
+    replace:
+      dest: /etc/environment
+      regexp: '^(PATH.*)(")$'
+      replace: '\1:/home/vagrant/go-workspace/bin\2'
+    become: true
+
   - name: Remove binary
     file:
       path=/tmp/go{{ go_version }}.linux-amd64.tar.gz
