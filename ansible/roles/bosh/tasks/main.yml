@@ -1,0 +1,38 @@
+---
+  - name: install dependencies
+    apt:
+        name={{ item }}
+        state=present
+        autoremove=yes
+    with_items:
+        - build-essential
+        - zlibc
+        - zlib1g-dev
+        - ruby
+        - ruby-dev
+        - openssl
+        - libxslt-dev
+        - libxml2-dev
+        - libssl-dev
+        - libreadline6
+        - libreadline6-dev
+        - libyaml-dev
+        - libsqlite3-dev
+        - sqlite3
+
+  - name: download bosh-cli
+    get_url:
+      url: https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-2.0.16-linux-amd64
+      dest: /usr/local/bin/bosh2
+      mode: "a+x"
+
+  - gem:
+      name: bosh-gen
+      state: latest
+      user_install: no
+
+  - name: install yaml-linux
+    get_url:
+        url: https://github.com/mikefarah/yaml/releases/download/1.10/yaml_linux_amd64
+        dest: /usr/local/bin/yaml
+        mode: "a+x"

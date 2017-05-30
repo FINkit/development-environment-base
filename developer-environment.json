@@ -53,7 +53,8 @@
           "./ansible/roles/gitbook",
           "./ansible/roles/compliance_masonry",
           "./ansible/roles/gcloud",
-          "./ansible/roles/newrelic"
+          "./ansible/roles/newrelic",
+          "./ansible/roles/bosh"
         ]
      }
   ],
