@@ -15,6 +15,10 @@
     go_version: "1.8.1"
     go_sha256_checksum: "a579ab19d5237e263254f1eac5352efcf1d70b9dacadb6d6bb12b0911ede8994"
     compliance_masonry_version: "1.1.2"
+    bosh_cli_version: "2.0.16"
+    yaml_linux_version: "1.10"
+    terraform_version: "0.9.6"
+    bosh_bootloader_version: "3.2.3"
   gather_facts: yes
   become: yes
   roles:
