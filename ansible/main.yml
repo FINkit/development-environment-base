@@ -9,7 +9,7 @@
     intellij_sha256_checksum: "ea90fce3f93c4eaa58036278f630a0545ae0b191fa3bff48f480f2b268867cb0"
     sts_version: "3.8.4"
     eclipse_version: "4.6.3"
-    docker_compose_version: "1.13.0"
+    docker_compose_version: "1.14.0"
     atom_version: "1.18.0"
     gradle_version: "4.0"
     go_version: "1.8.3"
