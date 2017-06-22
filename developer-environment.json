@@ -117,11 +117,7 @@
       {
         "type": "vagrant-cloud",
         "access_token": "{{user `vagrantcloud_token`}}",
-        "box_tag": "{{user `atlas_username`}}/{{user `vm_name`}}",
-        "metadata": {
-          "created_at": "{{timestamp}}",
-          "provider": "virtualbox"
-        }
+        "box_tag": "{{user `atlas_username`}}/{{user `vm_name`}}"
       }
     ]
   ],
