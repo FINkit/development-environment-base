@@ -1,6 +1,7 @@
 {
   "variables": {
     "atlas_username": "{{env `ATLAS_USERNAME`}}",
+    "vagrantcloud_token": "{{env `VAGRANTCLOUD_TOKEN`}}",
     "iso_checksum": "737ae7041212c628de5751d15c3016058b0e833fdc32e7420209b76ca3d0a535",
     "iso_checksum_type": "sha256",
     "iso_file": "http://releases.ubuntu.com/16.04/ubuntu-16.04.2-server-amd64.iso",
@@ -114,16 +115,13 @@
         "vagrantfile_template": "Vagrantfile.template"
       },
       {
-        "artifact": "{{user `atlas_username`}}/{{user `vm_name`}}",
-        "artifact_type": "vagrant.box",
+        "type": "vagrant-cloud",
+        "access_token": "{{user `vagrantcloud_token`}}",
+        "box_tag": "{{user `atlas_username`}}/{{user `vm_name`}}",
         "metadata": {
           "created_at": "{{timestamp}}",
           "provider": "virtualbox"
-        },
-        "only": [
-          "vbox"
-        ],
-        "type": "atlas"
+        }
       }
     ]
   ],
