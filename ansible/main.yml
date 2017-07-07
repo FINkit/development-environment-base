@@ -27,7 +27,7 @@
   roles:
     - disable_auto_update
     - developer_packages
-    - atom
+#    - atom
     - docker_service
     - docker_compose
     - cf_cli
