@@ -15,7 +15,7 @@ To [build](https://www.packer.io/docs/commands/build.html) the project, navigate
 ```
 packer build developer-environment.json
 ```
-**You'll need to set the `ATLAS_TOKEN`, `ATLAS_USERNAME` & `ATLAS_NAME` environment variables to push this artefact up to Vagrant**
+**You'll need to set the `VAGRANTCLOUD_TOKEN`, `ATLAS_USERNAME` & `ATLAS_NAME` environment variables to push this artefact up to Vagrant Cloud**
 
 ## download
 The built vagrant artefact is available [here](https://atlas.hashicorp.com/cooperc/boxes/developer-environment). You'll also require [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](https://www.vagrantup.com/downloads.html) to use this base box.
