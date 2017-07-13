@@ -35,7 +35,6 @@
     - sbt
     - gradle
     - intellij
-    - sts
     - unity_desktop
     - go
     - postman
