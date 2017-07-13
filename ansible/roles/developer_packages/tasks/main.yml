@@ -25,7 +25,6 @@
       - multitail
       - groovy
       - ldap-utils
-      - firefox
       - openjdk-8-jdk
       - ant
       - gnome-terminal
