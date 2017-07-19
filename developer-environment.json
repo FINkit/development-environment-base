@@ -53,7 +53,7 @@
       "only": [
         "vbox"
       ],
-      "script": "scripts/clean_ubuntu_cache.sh",
+      "script": "scripts/cleanup.sh",
       "type": "shell"
      }
   ],
