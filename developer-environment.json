@@ -17,22 +17,13 @@
     "version": "1.0.{{timestamp}}"
   },
   "provisioners": [
-     {
-      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
-      "only": [
-        "vbox"
-      ],
-      "scripts": [
-        "scripts/enable_passwordless_sudo.sh",
-        "scripts/clean_ubuntu_cache.sh",
-        "scripts/zero_image_drive.sh"
-      ],
-      "type": "shell"
-     },
-     {
+    {
       "type": "shell",
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "script": "scripts/ansible.sh"
+      "scripts": [
+        "scripts/enable_passwordless_sudo.sh",
+        "scripts/ansible.sh"
+       ]
      },
      {
         "type": "ansible-local",
@@ -56,6 +47,14 @@
           "./ansible/roles/newrelic",
           "./ansible/roles/bosh"
         ]
+     },
+     {
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "only": [
+        "vbox"
+      ],
+      "script": "scripts/clean_ubuntu_cache.sh",
+      "type": "shell"
      }
   ],
   "builders": [
