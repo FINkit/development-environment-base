@@ -116,7 +116,8 @@
         "type": "vagrant-cloud",
         "access_token": "{{user `vagrantcloud_token`}}",
         "box_tag": "{{user `atlas_username`}}/{{user `vm_name`}}",
-        "version": "{{user `version`}}"
+        "version": "{{user `version`}}",
+        "vagrant_cloud_url": "https://app.vagrantup.com/api/v1"
       }
     ]
   ],
