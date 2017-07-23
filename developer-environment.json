@@ -31,6 +31,7 @@
         "role_paths": [
           "./ansible/roles/disable_auto_update",
           "./ansible/roles/developer_packages",
+          "./ansible/roles/atom",
           "./ansible/roles/docker_service",
           "./ansible/roles/docker_compose",
           "./ansible/roles/cf_cli",
