@@ -32,6 +32,11 @@
       state: latest
       user_install: no
 
+  - gem:
+      name: cf-uaac
+      state: latest
+      user_install: no
+
   - name: install yaml-linux
     get_url:
         url: https://github.com/mikefarah/yaml/releases/download/{{yaml_linux_version}}/yaml_linux_amd64
