@@ -19,7 +19,7 @@
 
   - name: update directory permissions
     file:
-      path=/opt/intellij/{{ intellij_version }}/
+      path=/opt/intellij/
       state=directory
       owner=vagrant
       group=vagrant
