@@ -11,9 +11,19 @@
       dest="/opt/intellij/"
       checksum="sha256:{{intellij_sha256_checksum}}"
 
-  - name: unarchive
-    shell:
-      tar zxf "/opt/intellij/ideaIC-{{ intellij_version }}-no-jdk.tar.gz" -C "/opt/intellij/{{ intellij_version }}" --strip 1 && chown -R vagrant:vagrant /opt/intellij
+  - name: untar
+    unarchive:
+      src: "/opt/intellij/ideaIC-{{ intellij_version }}-no-jdk.tar.gz"
+      dest: "/opt/intellij/{{ intellij_version }}"
+      extra_opts: [--strip-components=1]
+
+  - name: update directory permissions
+    file:
+      path=/opt/intellij/{{ intellij_version }}/
+      state=directory
+      owner=vagrant
+      group=vagrant
+      recurse=yes
 
   - name: add symlink
     file:
