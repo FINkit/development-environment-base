@@ -11,7 +11,6 @@
     atom_version: "1.18.0"
     gradle_version: "4.0.2"
     go_version: "1.8.3"
-    go_sha256_checksum: "1862f4c3d3907e59b04a757cfda0ea7aa9ef39274af99a784f5be843c80c6772"
     compliance_masonry_version: "1.1.2"
     bosh_cli_version: "2.0.28"
     bosh_cli_sha1_checksum: "7b7629fcdf8839cf29bf25d97e8ea6beb3b9a7b2"
