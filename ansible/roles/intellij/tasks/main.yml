@@ -5,11 +5,15 @@
       state=directory
       mode=0777
 
+  - name: download sha256 checksum file
+    shell: curl https://download.jetbrains.com/idea/ideaIC-{{ intellij_version }}-no-jdk.tar.gz.sha256
+    register: intellij_sha256_checksum
+
   - name: download the file
     get_url:
       url="https://download.jetbrains.com/idea/ideaIC-{{ intellij_version }}-no-jdk.tar.gz"
       dest="/opt/intellij/"
-      checksum="sha256:{{intellij_sha256_checksum}}"
+      checksum="sha256:{{intellij_sha256_checksum[0:64]}}"
 
   - name: untar
     unarchive:
