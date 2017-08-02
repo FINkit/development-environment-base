@@ -1,9 +1,13 @@
 ---
+  - name: Download sha256 checksum
+    shell: curl  https://storage.googleapis.com/golang/go{{ go_version }}.linux-amd64.tar.gz.sha256
+    register: go_sha256_checksum
+
   - name: Download go archive
     get_url:
       url: https://storage.googleapis.com/golang/go{{ go_version }}.linux-amd64.tar.gz
       dest: /tmp/
-      checksum: "sha256:{{go_sha256_checksum}}"
+      checksum: "sha256:{{go_sha256_checksum.stdout}}"
 
   - name: Unarchive and move go binaries
     unarchive:
