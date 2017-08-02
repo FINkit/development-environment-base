@@ -5,11 +5,16 @@
       state=directory
       mode=0777
 
+  - name: download checksum
+    get_url:
+      url: https://download.jetbrains.com/idea/ideaIC-{{ intellij_version }}-no-jdk.tar.gz.sha256
+      dest: /opt/intellij/intellij.sha256
+
   - name: download the file
     get_url:
       url="https://download.jetbrains.com/idea/ideaIC-{{ intellij_version }}-no-jdk.tar.gz"
       dest="/opt/intellij/"
-      checksum="sha256:{{intellij_sha256_checksum}}"
+      checksum="sha256:{{ lookup('file', '/opt/intellij/intellij.sha256')[0:64] }}"
 
   - name: untar
     unarchive:
@@ -58,4 +63,9 @@
   - name: remove binaries
     file:
       path=/opt/intellij/ideaIC-{{ intellij_version }}-no-jdk.tar.gz
+      state=absent
+
+  - name: remove checksum
+    file:
+      path=/opt/intellij/intellij.sha256
       state=absent
