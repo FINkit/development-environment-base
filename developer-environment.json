@@ -2,6 +2,7 @@
   "variables": {
     "atlas_username": "{{env `ATLAS_USERNAME`}}",
     "cloud_token": "{{env `VAGRANT_CLOUD_TOKEN`}}",
+    "cloud_endpoint": "{{env `VAGRANT_CLOUD_ENDPOINT`}}",
     "iso_checksum": "737ae7041212c628de5751d15c3016058b0e833fdc32e7420209b76ca3d0a535",
     "iso_checksum_type": "sha256",
     "iso_file": "http://releases.ubuntu.com/16.04/ubuntu-16.04.2-server-amd64.iso",
@@ -118,7 +119,7 @@
         "access_token": "{{user `cloud_token`}}",
         "box_tag": "{{user `atlas_username`}}/{{user `vm_name`}}",
         "version": "{{user `version`}}",
-        "vagrant_cloud_url": "https://app.vagrantup.com/api/v1"
+        "vagrant_cloud_url": "{{user `cloud_endpoint`}}"
       }
     ]
   ],
