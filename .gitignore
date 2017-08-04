@@ -1,4 +1,5 @@
 output*
+*retry
 build
 *.box
 packer_cache
