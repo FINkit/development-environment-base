@@ -15,10 +15,10 @@ To [build](https://www.packer.io/docs/commands/build.html) the project, navigate
 ```
 packer build developer-environment.json
 ```
-**You'll need to set the `VAGRANTCLOUD_TOKEN`, `ATLAS_USERNAME` & `ATLAS_NAME` environment variables to push this artefact up to Vagrant Cloud**
+**You'll need to set the `VAGRANT_CLOUD_TOKEN`, `VAGRANT_CLOUD_ENDPOINT`, `ATLAS_USERNAME` & `ATLAS_NAME` environment variables to push this artefact up to Vagrant Cloud**
 
 ## download
-The built vagrant artefact is available [here](https://atlas.hashicorp.com/cooperc/boxes/developer-environment). You'll also require [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](https://www.vagrantup.com/downloads.html) to use this base box.
+The built vagrant artefact is available [here](https://app.vagrantup.com/cooperc/boxes/developer-environment). You'll also require [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](https://www.vagrantup.com/downloads.html) to use this base box.
 
 ## run
 You can create a basic `Vagrantfile` which will download the box and setup an environment:
@@ -51,7 +51,7 @@ $linux = (/linux/ =~ RUBY_PLATFORM) != nil
 Vagrant.configure(2) do |config|
 
   config.vm.box = "cooperc/developer-environment"
-  config.vm.box_version = "0.99"
+  config.vm.box_version = "1.0.1501695250"
 
   if Vagrant.has_plugin?("vagrant-vbguest")
     config.vbguest.auto_update = true
