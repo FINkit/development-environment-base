@@ -11,8 +11,6 @@
       state=present
       autoremove=yes
     with_items:
-      - gitk
-      - git-gui
       - putty-tools
       - dos2unix
       - wmctrl

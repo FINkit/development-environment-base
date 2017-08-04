@@ -11,9 +11,12 @@
 
   - name: install git
     apt:
-      name=git
+      name={{ item }}
       state=present
       autoremove=yes
+    with_items:
+      - gitk
+      - git-gui
 
   - name: output git version
     command: git --version
