@@ -24,6 +24,7 @@
   roles:
     - disable_auto_update
     - developer_packages
+    - git
     - atom
     - docker_service
     - docker_compose

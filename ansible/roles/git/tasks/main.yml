@@ -1,0 +1,19 @@
+---
+  - name: add git-core ppa
+    apt_repository:
+      repo='ppa:git-core/ppa'
+
+  - name: update
+    apt:
+      upgrade=dist
+      autoremove=yes
+      update_cache=yes
+
+  - name: install git
+    apt:
+      name=git
+      state=present
+      autoremove=yes
+
+  - name: output git version
+    command: git --version
