@@ -4,7 +4,7 @@
     cf_cli_version: "6.29.2"
     maven_version: "3.5.0"
     maven_checksum: "35c39251d2af99b6624d40d801f6ff02"
-    intellij_version: "2017.2.2"
+    intellij_version: "2017.2.3"
     sts_version: "3.9.0"
     eclipse_version: "4.7.0"
     docker_compose_version: "1.15.0"
