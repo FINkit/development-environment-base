@@ -8,7 +8,7 @@
     sts_version: "3.9.0"
     eclipse_version: "4.7.0"
     docker_compose_version: "1.15.0"
-    atom_version: "1.19.4"
+    atom_version: "1.19.5"
     gradle_version: "4.0.2"
     go_version: "1.9"
     compliance_masonry_version: "1.1.2"
