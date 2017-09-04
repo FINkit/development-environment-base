@@ -7,7 +7,7 @@
     intellij_version: "2017.2.3"
     sts_version: "3.9.0"
     eclipse_version: "4.7.0"
-    docker_compose_version: "1.16.0"
+    docker_compose_version: "1.16.1"
     atom_version: "1.19.5"
     gradle_version: "4.1"
     go_version: "1.9"
