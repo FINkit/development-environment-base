@@ -16,7 +16,7 @@
     bosh_cli_sha1_checksum: "b41f555b87b9898d501a29c995dc5eb8563d4308"
     yaml_linux_version: "1.11"
     terraform_version: "0.10.4"
-    bosh_bootloader_version: "4.5.1"
+    bosh_bootloader_version: "4.7.0"
     postman_version: "5.2.0"
     postman_sha1_checksum: "8973ABB64572A45E8FBD63D369DE1A402796D4E5"
   gather_facts: yes
