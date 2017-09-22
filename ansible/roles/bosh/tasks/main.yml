@@ -25,7 +25,6 @@
       url: https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-{{bosh_cli_version}}-linux-amd64
       dest: /usr/local/bin/bosh2
       mode: "a+x"
-      checksum: "sha1:{{bosh_cli_sha1_checksum}}"
 
   - gem:
       name: bosh-gen
