@@ -12,7 +12,9 @@ def projects = [
     'cloudfoundry/bosh-cli':'bosh_cli_version',
     'opencontrol/compliance-masonry':'compliance_masonry_version',
     'mikefarah/yaml':'yaml_linux_version',
-    'hashicorp/terraform':'terraform_version'
+    'hashicorp/terraform':'terraform_version',
+    'atom/atom':'atom_version',
+    'docker/compose':'docker_compose_version'
 ]
 
 projects.each { project, ansibleKey -> 
@@ -26,7 +28,7 @@ projects.each { project, ansibleKey ->
     println newVersion
     println oldVersion
     
-    if (newVersion != oldVersion) {
+    if (newVersion != oldVersion && !newVersion.contains("beta")) {
         ant.replace(file: "ansible/main.yml", token: "${ansibleKey}: \"${oldVersion}\"", value: "${ansibleKey}: \"${newVersion}\"")
     }
 }
