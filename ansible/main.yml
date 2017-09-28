@@ -1,7 +1,7 @@
 ---
 - hosts: all
   vars:
-    cf_cli_version: "6.31.0"
+    cf_cli_version: "6.32.0"
     maven_version: "3.5.0"
     maven_checksum: "35c39251d2af99b6624d40d801f6ff02"
     intellij_version: "2017.2.5"
@@ -12,10 +12,10 @@
     gradle_version: "4.2"
     go_version: "1.9"
     compliance_masonry_version: "1.1.2"
-    bosh_cli_version: "2.0.40"
-    yaml_linux_version: "1.13.0"
+    bosh_cli_version: "2.0.41"
+    yaml_linux_version: "1.13.1"
     terraform_version: "0.10.6"
-    bosh_bootloader_version: "4.10.1"
+    bosh_bootloader_version: "5.0.0"
     postman_version: "5.2.0"
     postman_sha1_checksum: "8973ABB64572A45E8FBD63D369DE1A402796D4E5"
   gather_facts: yes
