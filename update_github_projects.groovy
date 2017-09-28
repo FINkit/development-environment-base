@@ -14,14 +14,21 @@ def projects = [
     'mikefarah/yaml':'yaml_linux_version',
     'hashicorp/terraform':'terraform_version',
     'atom/atom':'atom_version',
-    'docker/compose':'docker_compose_version'
+    'docker/compose':'docker_compose_version',
+    'golang/go':'go_version'
 ]
 
 projects.each { project, ansibleKey -> 
     def url = "https://github.com/${project}/releases.atom"
     println url
     def idString = url.toURL().text.xml().entry[0].id.text()
-    def newVersion = idString.substring(idString.lastIndexOf('/') + 1).replace('v','')
+    def versionPrefix
+    if ('golang/go'.equals(project)) {
+        versionPrefix = 'go'
+    } else {
+        versionPrefix = 'v'
+    }
+    def newVersion = idString.substring(idString.lastIndexOf('/') + 1).replace(versionPrefix,'')
     
     def ansible = new File('ansible/main.yml')
     def oldVersion = ansible.readLines().find{ it.contains(ansibleKey) }.replace("${ansibleKey}: ","").replace('"','').trim()
