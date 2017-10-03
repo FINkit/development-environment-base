@@ -20,7 +20,6 @@ def projects = [
 
 projects.each { project, ansibleKey -> 
     def url = "https://github.com/${project}/releases.atom"
-    println url
     def idString = url.toURL().text.xml().entry[0].id.text()
     def versionPrefix
     if ('golang/go'.equals(project)) {
@@ -32,10 +31,9 @@ projects.each { project, ansibleKey ->
     
     def ansible = new File('ansible/main.yml')
     def oldVersion = ansible.readLines().find{ it.contains(ansibleKey) }.replace("${ansibleKey}: ","").replace('"','').trim()
-    println newVersion
-    println oldVersion
     
     if (newVersion != oldVersion && !newVersion.contains("beta")) {
+	println "${url}: ${oldVersion} -> ${newVersion}"
         ant.replace(file: "ansible/main.yml", token: "${ansibleKey}: \"${oldVersion}\"", value: "${ansibleKey}: \"${newVersion}\"")
     }
 }
