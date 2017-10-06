@@ -23,6 +23,7 @@
       - groovy
       - ldap-utils
       - openjdk-8-jdk
+      - openjdk-8-source
       - ant
       - gnome-terminal
       - ngrep
