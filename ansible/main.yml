@@ -16,8 +16,8 @@
     yaml_linux_version: "1.13.1"
     terraform_version: "0.10.7"
     bosh_bootloader_version: "4.10.3"
-    postman_version: "5.2.0"
-    postman_sha1_checksum: "8973ABB64572A45E8FBD63D369DE1A402796D4E5"
+    postman_version: "5.2.1"
+    postman_sha1_checksum: "A221886AD318E30827CD1DDA9E2B0EF1C208187B"
   gather_facts: yes
   become: yes
   roles:
