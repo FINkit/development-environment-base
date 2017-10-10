@@ -16,7 +16,7 @@
     yaml_linux_version: "1.13.1"
     terraform_version: "0.10.7"
     bosh_bootloader_version: "4.10.3"
-    postman_version: "5.2.1"
+    postman_version: "5.3.0"
   gather_facts: yes
   become: yes
   roles:
