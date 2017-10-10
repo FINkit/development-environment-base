@@ -12,10 +12,10 @@
     gradle_version: "4.2.1"
     go_version: "1.9.1"
     compliance_masonry_version: "1.1.2"
-    bosh_cli_version: "2.0.41"
+    bosh_cli_version: "2.0.42"
     yaml_linux_version: "1.13.1"
     terraform_version: "0.10.7"
-    bosh_bootloader_version: "4.10.3"
+    bosh_bootloader_version: "4.10.4"
     postman_version: "5.3.0"
   gather_facts: yes
   become: yes
