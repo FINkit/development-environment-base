@@ -3,7 +3,6 @@
     get_url:
       url="https://dl.pstmn.io/download/version/{{ postman_version }}/linux64"
       dest="/opt/postman.tar.gz"
-      checksum="sha1:{{postman_sha1_checksum}}"
 
   - name: unarchive
     unarchive:
