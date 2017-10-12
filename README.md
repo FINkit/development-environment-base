@@ -1,4 +1,4 @@
-# developer-environment
+# development-environment-base
 
 ## overview
 This project produces an Ubuntu OS Vagrant box, which is built using [Hashicorp Packer](https://www.packer.io/) for consumption by [Hashicorp Vagrant](https://www.vagrantup.com/), tailored to run on [VirtualBox](https://www.virtualbox.org/). The box is provisioned using [Ansible](https://www.ansible.com/), and aims to provide developers with an environment containing some of the most common development tools and packages.
@@ -7,18 +7,18 @@ This project produces an Ubuntu OS Vagrant box, which is built using [Hashicorp 
 To [validate](https://www.packer.io/docs/commands/validate.html) the packer configuration, navigate to the root of the project and run:
 
 ```
-packer validate developer-environment.json
+packer validate development-environment-base.json
 ```
 
 ## build
 To [build](https://www.packer.io/docs/commands/build.html) the project, navigate to the root of the project and run:
 ```
-packer build developer-environment.json
+packer build development-environment-base.json
 ```
 **You'll need to set the `VAGRANT_CLOUD_TOKEN`, `VAGRANT_CLOUD_ENDPOINT`, `ATLAS_USERNAME` & `ATLAS_NAME` environment variables to push this artefact up to Vagrant Cloud**
 
 ## download
-The built vagrant artefact is available [here](https://app.vagrantup.com/cooperc/boxes/developer-environment). You'll also require [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](https://www.vagrantup.com/downloads.html) to use this base box.
+The built vagrant artefact is available [here](https://app.vagrantup.com/finkit/boxes/development-environment-base). You'll also require [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](https://www.vagrantup.com/downloads.html) to use this base box.
 
 ## run
 You can create a basic `Vagrantfile` which will download the box and setup an environment:
@@ -50,7 +50,7 @@ $linux = (/linux/ =~ RUBY_PLATFORM) != nil
 
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "cooperc/developer-environment"
+  config.vm.box = "finkit/development-environment-base"
   config.vm.box_version = "1.0.1501695250"
 
   if Vagrant.has_plugin?("vagrant-vbguest")

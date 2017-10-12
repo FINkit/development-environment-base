@@ -125,7 +125,7 @@
     ]
   ],
   "push": {
-    "name": "cooperc/developer-environment",
+    "name": "finkit/development-environment-base",
     "vcs": true
   }
 }
