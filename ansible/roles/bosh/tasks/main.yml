@@ -26,6 +26,12 @@
       dest: /usr/local/bin/bosh2
       mode: "a+x"
 
+  - name: bosh2 to bosh symlink
+    file:
+        src: /usr/local/bin/bosh2
+        dest: /usr/local/bin/bosh
+        state: link
+
   - gem:
       name: bosh-gen
       state: latest
