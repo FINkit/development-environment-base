@@ -1,3 +1,11 @@
+#idea
+.idea
+*.iml
+
+#eclipse
+.settings
+.project
+
 output*
 *retry
 build
