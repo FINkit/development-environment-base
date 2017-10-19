@@ -32,7 +32,7 @@ projects.each { project, ansibleKey ->
     def ansible = new File('ansible/main.yml')
     def oldVersion = ansible.readLines().find{ it.contains(ansibleKey) }.replace("${ansibleKey}: ","").replace('"','').trim()
     
-    if (newVersion != oldVersion && !newVersion.contains("beta")) {
+    if (newVersion != oldVersion && !newVersion.contains("beta") && !newVersion.contains("rc")) {
 	println "${url}: ${oldVersion} -> ${newVersion}"
         ant.replace(file: "ansible/main.yml", token: "${ansibleKey}: \"${oldVersion}\"", value: "${ansibleKey}: \"${newVersion}\"")
     }
