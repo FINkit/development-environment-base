@@ -14,7 +14,7 @@
     "vm_cpus": "1",
     "vm_ram_size": "2048",
     "vm_vram_size": "64",
-    "vm_disk_size": "20480",
+    "vm_disk_size": "30720",
     "version": "1.0.{{timestamp}}"
   },
   "provisioners": [
