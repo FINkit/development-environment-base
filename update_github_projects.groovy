@@ -15,7 +15,8 @@ def projects = [
     'hashicorp/terraform':'terraform_version',
     'atom/atom':'atom_version',
     'docker/compose':'docker_compose_version',
-    'golang/go':'go_version'
+    'golang/go':'go_version',
+    'gradle/gradle':'gradle_version'
 ]
 
 projects.each { project, ansibleKey -> 
@@ -32,7 +33,7 @@ projects.each { project, ansibleKey ->
     def ansible = new File('ansible/main.yml')
     def oldVersion = ansible.readLines().find{ it.contains(ansibleKey) }.replace("${ansibleKey}: ","").replace('"','').trim()
     
-    if (newVersion != oldVersion && !newVersion.contains("beta") && !newVersion.contains("rc")) {
+    if (newVersion != oldVersion && !newVersion.contains("beta") && !newVersion.toLowerCase().contains("rc")) {
 	println "${url}: ${oldVersion} -> ${newVersion}"
         ant.replace(file: "ansible/main.yml", token: "${ansibleKey}: \"${oldVersion}\"", value: "${ansibleKey}: \"${newVersion}\"")
     }
