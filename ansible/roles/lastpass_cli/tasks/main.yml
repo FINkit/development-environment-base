@@ -1,0 +1,19 @@
+---
+  - name: clone lastpass-cli git repository
+    git:
+      repo: https://github.com/lastpass/lastpass-cli
+      dest: /opt/
+      version: v1.2.2
+    become: yes
+
+  - name: make
+    make:
+      chdir: /opt/lastpass-cli
+    become: yes
+
+  - name: copy built lpass script
+    copy:
+      src: /opt/lastpass-cli/build/lpass 
+      dest: /usr/bin/lpass
+      mode: 0755
+    become: yes
