@@ -2,7 +2,7 @@
   - name: clone lastpass-cli git repository
     git:
       repo: https://github.com/lastpass/lastpass-cli
-      dest: /opt/
+      dest: /opt/lastpass-cli
       version: v1.2.2
     become: yes
 
