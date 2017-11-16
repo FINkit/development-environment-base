@@ -40,3 +40,4 @@
       - wkhtmltopdf
       - bash-completion
       - autojump
+      - cmake
