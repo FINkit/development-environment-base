@@ -40,3 +40,5 @@
       - wkhtmltopdf
       - bash-completion
       - autojump
+      - cmake
+      - libcurl4-openssl-dev
