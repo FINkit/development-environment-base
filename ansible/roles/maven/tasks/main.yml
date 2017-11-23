@@ -1,7 +1,7 @@
 ---
   - name: download the file
     get_url:
-      url="http://mirrors.ukfast.co.uk/sites/ftp.apache.org/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz"
+      url="https://archive.apache.org/dist/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz"
       dest="/opt/apache-maven-{{ maven_version }}.tar.gz"
 
   - name: decompress and unarchive the binary
