@@ -2,7 +2,7 @@
 - hosts: all
   vars:
     cf_cli_version: "6.33.0"
-    maven_version: "3.5.2"
+    maven_version: "3.5.0"
     intellij_version: "2017.2.6"
     sts_version: "3.9.1"
     eclipse_version: "4.7.1a"
