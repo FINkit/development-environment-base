@@ -20,7 +20,6 @@
       - jq
       - xmlstarlet
       - multitail
-      - groovy
       - ldap-utils
       - openjdk-8-jdk
       - openjdk-8-source
