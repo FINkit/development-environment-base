@@ -16,6 +16,7 @@
     terraform_version: "0.11.1"
     bosh_bootloader_version: "5.6.4"
     postman_version: "5.3.2"
+    fly_version: "3.8.0"
   gather_facts: yes
   become: yes
   roles:
@@ -38,3 +39,4 @@
     - gcloud
     - newrelic
     - bosh
+    - fly
