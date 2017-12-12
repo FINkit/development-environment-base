@@ -1,4 +1,8 @@
 ---
+- name: Create dir
+  file: path=/opt/fly state=directory
+  become: true
+
 - name: download the file
   get_url:
     url="https://github.com/concourse/concourse/releases/download/v{{ fly_version }}/fly_linux_amd64"
