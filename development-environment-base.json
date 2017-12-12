@@ -49,7 +49,8 @@
           "./ansible/roles/gcloud",
           "./ansible/roles/newrelic",
           "./ansible/roles/bosh",
-          "./ansible/roles/fly"
+          "./ansible/roles/fly",
+          "./ansible/roles/groovy"
         ]
      },
      {

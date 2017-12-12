@@ -17,6 +17,7 @@
     bosh_bootloader_version: "5.6.4"
     postman_version: "5.3.2"
     fly_version: "3.8.0"
+    groovy_version: "2.4.13"
   gather_facts: yes
   become: yes
   roles:
@@ -40,3 +41,4 @@
     - newrelic
     - bosh
     - fly
+    - groovy
