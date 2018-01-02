@@ -42,9 +42,9 @@
       state: latest
       user_install: no
 
-  - name: install yaml-linux
+  - name: install yq-linux
     get_url:
-        url: https://github.com/mikefarah/yaml/releases/download/{{yaml_linux_version}}/yaml_linux_amd64
+        url: https://github.com/mikefarah/yq/releases/download/{{yq_linux_version}}/yq_linux_amd64
         dest: /usr/local/bin/yaml
         mode: "a+x"
 
