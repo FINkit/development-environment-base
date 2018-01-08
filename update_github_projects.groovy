@@ -11,7 +11,7 @@ def projects = [
     'cloudfoundry/bosh-bootloader':'bosh_bootloader_version',
     'cloudfoundry/bosh-cli':'bosh_cli_version',
     'opencontrol/compliance-masonry':'compliance_masonry_version',
-    'mikefarah/yaml':'yaml_linux_version',
+    'mikefarah/yq':'yq_linux_version',
     'hashicorp/terraform':'terraform_version',
     'atom/atom':'atom_version',
     'docker/compose':'docker_compose_version',
