@@ -8,6 +8,9 @@
     url="https://github.com/concourse/concourse/releases/download/v{{ fly_version }}/fly_linux_amd64"
     dest="/opt/fly/fly_linux_amd64"
 
+- name: Make executable
+  file: dest="/opt/fly/fly_linux_amd64" mode=a+x
+
 - name: Add to path
   file: src="/opt/fly/fly_linux_amd64"
     dest=/usr/local/bin/fly
