@@ -39,4 +39,3 @@
       - wkhtmltopdf
       - bash-completion
       - autojump
-      - taurus
