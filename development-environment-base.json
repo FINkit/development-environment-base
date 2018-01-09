@@ -50,7 +50,8 @@
           "./ansible/roles/newrelic",
           "./ansible/roles/bosh",
           "./ansible/roles/fly",
-          "./ansible/roles/groovy"
+          "./ansible/roles/groovy",
+          "./ansible/roles/taurus"
         ]
      },
      {
