@@ -1,0 +1,25 @@
+---
+  - name: update
+    apt:
+      upgrade=dist
+      autoremove=yes
+      update_cache=yes
+
+  - name: install packages
+    apt:
+      name={{ item }}
+      state=present
+      autoremove=yes
+    with_items:
+      - python
+      - default-jre-headless
+      - python-tk
+      - python-pip
+      - python-dev
+      - libxml2-dev
+      - libxslt-dev
+      - zlib1g-dev
+
+  - name: install taurus
+    pip:
+      name=bzt
