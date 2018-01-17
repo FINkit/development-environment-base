@@ -3,7 +3,7 @@
   vars:
     cf_cli_version: "6.34.0"
     maven_version: "3.5.0"
-    intellij_version: "2017.3.2"
+    intellij_version: "2017.3.3"
     sts_version: "3.9.2"
     eclipse_version: "4.7.2"
     docker_compose_version: "1.18.0"
