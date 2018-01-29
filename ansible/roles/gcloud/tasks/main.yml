@@ -15,5 +15,4 @@
   - name: Install cli
     apt:
       name: google-cloud-sdk=185.0.0-0
-      state: latest
       update-cache: yes
