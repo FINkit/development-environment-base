@@ -30,12 +30,27 @@ projects.each { project, ansibleKey ->
         versionPrefix = 'v'
     }
     def newVersion = idString.substring(idString.lastIndexOf('/') + 1).replace(versionPrefix,'')
-    
+
     def ansible = new File('ansible/main.yml')
     def oldVersion = ansible.readLines().find{ it.contains(ansibleKey) }.replace("${ansibleKey}: ","").replace('"','').trim()
-    
-    if (newVersion != oldVersion && !newVersion.contains("beta") && !newVersion.toLowerCase().contains("rc")) {
+
+
+
+    if (newVersion != oldVersion && isSameMajorRelease(oldVersion, newVersion, project)
+            && !newVersion.contains("beta") && !newVersion.toLowerCase().contains("rc")) {
 	println "${url}: ${oldVersion} -> ${newVersion}"
         ant.replace(file: "ansible/main.yml", token: "${ansibleKey}: \"${oldVersion}\"", value: "${ansibleKey}: \"${newVersion}\"")
     }
+}
+
+def isSameMajorRelease (String oldVersion, String newVersion, String project) {
+    if (getMajorVersion(oldVersion).equals(getMajorVersion(newVersion))) {
+	return true
+    }
+    println "$project has changed major version from $oldVersion to $newVersion, skipping..."
+    return false
+}
+
+def getMajorVersion (String version) {
+    return version.substring(0, version.indexOf("."))
 }
