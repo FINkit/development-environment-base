@@ -8,15 +8,15 @@
     eclipse_version: "4.7.2"
     docker_compose_version: "1.19.0"
     atom_version: "1.20.1"
-    gradle_version: "4.5.1"
+    gradle_version: "4.6"
     go_version: "1.10"
     compliance_masonry_version: "1.1.2"
     bosh_cli_version: "2.0.48"
     yq_linux_version: "1.14.0"
     terraform_version: "0.11.3"
     bosh_bootloader_version: "5.11.6"
-    postman_version: "5.5.3"
-    fly_version: "3.9.0"
+    postman_version: "6.0.8"
+    fly_version: "3.9.1"
     groovy_version: "2.4.13"
   gather_facts: yes
   become: yes
