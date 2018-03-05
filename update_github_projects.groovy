@@ -31,10 +31,12 @@ projects.each { project, ansibleKey ->
     }
     def newVersion = idString.substring(idString.lastIndexOf('/') + 1).replace(versionPrefix,'')
 
+    if ('gradle/gradle'.equals(project)) {
+        newVersion = formatGradleVersion(newVersion)
+    }
+
     def ansible = new File('ansible/main.yml')
     def oldVersion = ansible.readLines().find{ it.contains(ansibleKey) }.replace("${ansibleKey}: ","").replace('"','').trim()
-
-
 
     if (newVersion != oldVersion && isSameMajorRelease(oldVersion, newVersion, project)
             && !newVersion.contains("beta") && !newVersion.toLowerCase().contains("rc")) {
@@ -53,4 +55,11 @@ def isSameMajorRelease (String oldVersion, String newVersion, String project) {
 
 def getMajorVersion (String version) {
     return version.substring(0, version.indexOf("."))
+}
+
+def formatGradleVersion (String version) {
+    // if a new minor release comes out, the download link doesn't include the patch version
+    if (version.endsWith(".0")) {
+        return version.substring(0, version.size() - 2)
+    }
 }
