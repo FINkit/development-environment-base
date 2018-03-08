@@ -40,4 +40,3 @@
       - bash-completion
       - autojump
       - nano
-      - kubectl

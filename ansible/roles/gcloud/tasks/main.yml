@@ -17,3 +17,9 @@
       name: google-cloud-sdk
       state: latest
       update-cache: yes
+
+  - name: Install Kubernetes CLI
+    apt:
+      name: kubectl
+      state: latest
+      update-cache: yes
