@@ -1,9 +1,9 @@
 ---
 - hosts: all
   vars:
-    cf_cli_version: "6.34.1"
+    cf_cli_version: "6.35.0"
     maven_version: "3.5.0"
-    intellij_version: "2017.3.4"
+    intellij_version: "2017.3.5"
     sts_version: "3.9.2"
     eclipse_version: "4.7.2"
     docker_compose_version: "1.19.0"
@@ -16,7 +16,7 @@
     terraform_version: "0.11.3"
     bosh_bootloader_version: "5.11.6"
     postman_version: "6.0.8"
-    fly_version: "3.9.1"
+    fly_version: "3.9.2"
     groovy_version: "2.4.13"
   gather_facts: yes
   become: yes
