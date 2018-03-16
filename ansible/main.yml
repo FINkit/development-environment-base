@@ -1,8 +1,8 @@
 ---
 - hosts: all
   vars:
-    cf_cli_version: "6.35.0"
-    maven_version: "3.5.0"
+    cf_cli_version: "6.35.1"
+    maven_version: "3.5.3"
     intellij_version: "2017.3.5"
     sts_version: "3.9.2"
     eclipse_version: "4.7.2"
@@ -13,9 +13,9 @@
     compliance_masonry_version: "1.1.2"
     bosh_cli_version: "2.0.48"
     yq_linux_version: "1.14.0"
-    terraform_version: "0.11.3"
+    terraform_version: "0.11.4"
     bosh_bootloader_version: "5.11.6"
-    postman_version: "6.0.8"
+    postman_version: "6.0.9"
     fly_version: "3.9.2"
     groovy_version: "2.4.13"
   gather_facts: yes
