@@ -40,3 +40,10 @@
       - bash-completion
       - autojump
       - nano
+
+  - name: Install Python package(s)
+    pip:
+      name={{ item }}
+      state=present
+    with_items:
+      - json2yaml
