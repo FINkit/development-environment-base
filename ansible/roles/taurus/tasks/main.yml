@@ -5,10 +5,8 @@
       state=present
       autoremove=yes
     with_items:
-      - python
       - default-jre-headless
       - python-tk
-      - python-pip
       - python-dev
       - libxml2-dev
       - libxslt-dev
