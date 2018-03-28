@@ -40,11 +40,12 @@
       - bash-completion
       - autojump
       - nano
+      - python
+      - python-pip
 
   - name: Install Python package(s)
     pip:
       name={{ item }}
       state=present
-    become: true
     with_items:
       - json2yaml
