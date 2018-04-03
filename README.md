@@ -1,5 +1,7 @@
 # development-environment-base
 
+[![Build Status](https://travis-ci.org/FINkit/development-environment-base.svg?branch=master)](https://travis-ci.org/FINkit/development-environment-base)
+
 ## overview
 This project produces an Ubuntu OS Vagrant box, which is built using [Hashicorp Packer](https://www.packer.io/) for consumption by [Hashicorp Vagrant](https://www.vagrantup.com/), tailored to run on [VirtualBox](https://www.virtualbox.org/). The box is provisioned using [Ansible](https://www.ansible.com/), and aims to provide developers with an environment containing some of the most common development tools and packages.
 
