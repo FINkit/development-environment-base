@@ -62,4 +62,5 @@ def formatGradleVersion (String version) {
     if (version.endsWith(".0")) {
         return version.substring(0, version.size() - 2)
     }
+    return version
 }
