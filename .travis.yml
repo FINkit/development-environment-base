@@ -9,3 +9,6 @@ install:
 
 after_success:
   - ./packer validate ./development-environment-base.json
+
+deploy:
+  - ./packer build ./development-environment-base.json
