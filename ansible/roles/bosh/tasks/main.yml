@@ -19,6 +19,7 @@
         - libyaml-dev
         - libsqlite3-dev
         - sqlite3
+        - libcurl4-openssl-dev
 
   - name: download bosh-cli
     get_url:
