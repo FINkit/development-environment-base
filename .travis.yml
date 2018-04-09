@@ -1,3 +1,6 @@
+env:
+  - ATLAS_TOKEN=dummytoken
+
 language: generic
 before_install:
   - sudo apt-get -qq update
