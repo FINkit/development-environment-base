@@ -9,6 +9,4 @@ install:
 
 after_success:
   - ./packer validate ./development-environment-base.json
-
-deploy:
-  - ./packer build ./development-environment-base.json
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./packer build ./development-environment-base.json; fi'
