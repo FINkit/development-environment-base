@@ -52,7 +52,8 @@
           "./ansible/roles/fly",
           "./ansible/roles/groovy",
           "./ansible/roles/taurus",
-          "./ansible/roles/json2yaml"
+          "./ansible/roles/json2yaml",
+          "./ansible/roles/vscode"
         ]
      },
      {

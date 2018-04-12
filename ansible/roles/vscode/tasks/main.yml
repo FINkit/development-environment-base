@@ -1,0 +1,5 @@
+---
+  - name: "install vscode"
+    apt:
+      deb="https://vscode-update.azurewebsites.net/{{vscode_version}}/linux-deb-x64/stable"
+      autoremove=yes
