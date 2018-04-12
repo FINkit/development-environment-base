@@ -50,6 +50,7 @@
           "./ansible/roles/newrelic",
           "./ansible/roles/bosh",
           "./ansible/roles/fly",
+          "./ansible/roles/credhub",
           "./ansible/roles/groovy",
           "./ansible/roles/taurus",
           "./ansible/roles/json2yaml"

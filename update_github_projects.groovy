@@ -9,6 +9,7 @@ def ant = new groovy.util.AntBuilder()
 def projects = [
     'cloudfoundry/cli':'cf_cli_version',
     'cloudfoundry/bosh-bootloader':'bosh_bootloader_version',
+    'cloudfoundry-incubator/credhub-cli':'credhub_cli_version',
     'cloudfoundry/bosh-cli':'bosh_cli_version',
     'opencontrol/compliance-masonry':'compliance_masonry_version',
 //    'mikefarah/yq':'yq_linux_version',
