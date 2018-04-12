@@ -42,3 +42,4 @@
       - nano
       - python
       - python-pip
+      - locate
