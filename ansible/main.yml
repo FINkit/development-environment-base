@@ -19,7 +19,7 @@
     postman_version: "6.0.10"
     fly_version: "3.10.0"
     groovy_version: "2.4.13"
-    vscode_version: "1.22.1"
+    vscode_version: "1.22.2"
   gather_facts: yes
   become: yes
   roles:
