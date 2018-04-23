@@ -7,8 +7,8 @@
     sts_version: "3.9.4"
     eclipse_version: "4.7.3a"
     docker_compose_version: "1.21.0"
-    atom_version: "1.20.1"
-    gradle_version: "4.6"
+    atom_version: "1.26.0"
+    gradle_version: "4.7"
     go_version: "1.10.1"
     compliance_masonry_version: "1.1.3"
     bosh_cli_version: "2.0.48"
@@ -18,7 +18,7 @@
     credhub_cli_version: "1.7.4"
     postman_version: "6.0.10"
     fly_version: "3.11.0"
-    groovy_version: "2.4.13"
+    groovy_version: "2.4.15"
     vscode_version: "1.22.2"
   gather_facts: yes
   become: yes

@@ -4,20 +4,20 @@
   become: true
 
 - name: Download
-  get_url: dest="/opt/groovy" url=https://dl.bintray.com/groovy/maven/apache-groovy-sdk-{{groovy_version}}.zip
+  get_url: dest="/opt/groovy" url=https://dl.bintray.com/groovy/maven/apache-groovy-sdk-{{ groovy_version }}.zip
   become: true
 
 - name: Extract zip
   unarchive:
-    src: "/opt/groovy/apache-groovy-sdk-{{groovy_version}}.zip"
+    src: "/opt/groovy/apache-groovy-sdk-{{ groovy_version }}.zip"
     dest: "/opt/groovy"
 
 - name: Add to path
-  file: src="/opt/groovy/groovy-{{groovy_version}}/bin/groovy"
+  file: src="/opt/groovy/groovy-{{ groovy_version }}/bin/groovy"
     dest=/usr/local/bin/groovy
     owner=root
     group=root
     state=link
 
 - name: Delete zip
-  file: path=/opt/groovy/apache-groovy-sdk-{groovy_version}}.zip state=absent
+  file: path=/opt/groovy/apache-groovy-sdk-{{ groovy_version }}.zip state=absent
