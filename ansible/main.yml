@@ -3,7 +3,7 @@
   vars:
     cf_cli_version: "6.36.1"
     maven_version: "3.5.3"
-    intellij_version: "2018.1.1"
+    intellij_version: "2018.1.2"
     sts_version: "3.9.4"
     eclipse_version: "4.7.3a"
     docker_compose_version: "1.21.0"
@@ -14,7 +14,7 @@
     bosh_cli_version: "2.0.48"
     yq_linux_version: "1.14.0"
     terraform_version: "0.11.7"
-    bosh_bootloader_version: "6.6.4"
+    bosh_bootloader_version: "6.6.5"
     credhub_cli_version: "1.7.4"
     postman_version: "6.0.10"
     fly_version: "3.11.0"
