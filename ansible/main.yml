@@ -20,6 +20,7 @@
     fly_version: "3.13.0"
     groovy_version: "2.4.15"
     vscode_version: "1.23.0"
+    hub_version: "2.3.0-pre10"
   gather_facts: yes
   become: yes
   roles:
@@ -48,3 +49,4 @@
     - taurus
     - json2yaml
     - vscode
+    - hub

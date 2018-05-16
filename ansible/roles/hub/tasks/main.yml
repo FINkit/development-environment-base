@@ -1,0 +1,29 @@
+---
+  - name: create dir
+    file:
+      path: /opt/hub
+      state: directory
+    become: true
+
+  - name: download archive
+    get_url:
+      url: https://github.com/github/hub/releases/download/v{{ hub_version }}/hub-linux-amd64-{{ hub_version }}.tgz
+      dest: /opt/hub/hub.tgz
+
+  - name: extract archive
+    unarchive:
+      src: /opt/hub/hub.tgz
+      dest: /opt/hub
+
+  - name: delete archive
+    file:
+      path: /opt/hub/hub.tgz
+      state: absent
+
+  - name: overwrite git command with hub alias
+    lineinfile:
+      path: /home/vagrant/.bash_aliases
+      line: "alias git='/opt/hub/hub-linux-amd64-{{ hub_version }}/bin/hub'"
+      owner: root
+      state: present
+      create: yes
