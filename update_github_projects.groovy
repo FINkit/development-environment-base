@@ -18,7 +18,8 @@ def projects = [
     'docker/compose':'docker_compose_version',
     'golang/go':'go_version',
     'gradle/gradle':'gradle_version',
-    'concourse/concourse':'fly_version'
+    'concourse/concourse':'fly_version',
+    'github/hub':'hub_version'
 ]
 
 projects.each { project, ansibleKey -> 
