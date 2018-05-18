@@ -1,7 +1,7 @@
 ---
 - hosts: all
   vars:
-    cf_cli_version: "6.36.1"
+    cf_cli_version: "6.36.2"
     maven_version: "3.5.3"
     intellij_version: "2018.1.3"
     sts_version: "3.9.4"
