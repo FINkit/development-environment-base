@@ -1,9 +1,9 @@
 ---
 - hosts: all
   vars:
-    cf_cli_version: "6.36.2"
+    cf_cli_version: "6.37.0"
     maven_version: "3.5.3"
-    intellij_version: "2018.1.3"
+    intellij_version: "2018.1.4"
     sts_version: "3.9.4"
     eclipse_version: "4.7.3a"
     docker_compose_version: "1.21.2"
@@ -14,13 +14,13 @@
     bosh_cli_version: "2.0.48"
     yq_linux_version: "1.14.0"
     terraform_version: "0.11.7"
-    bosh_bootloader_version: "6.6.11"
+    bosh_bootloader_version: "6.7.0"
     credhub_cli_version: "1.7.5"
-    postman_version: "6.0.10"
+    postman_version: "6.1.3"
     fly_version: "3.13.0"
     groovy_version: "2.4.15"
     vscode_version: "1.23.0"
-    hub_version: "2.3.0-pre10"
+    hub_version: "2.3.0"
   gather_facts: yes
   become: yes
   roles:
