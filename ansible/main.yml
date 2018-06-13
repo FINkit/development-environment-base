@@ -20,7 +20,7 @@
     fly_version: "3.14.1"
     groovy_version: "2.4.15"
     vscode_version: "1.23.0"
-    hub_version: "2.3.0"
+    hub_version: "2.4.0"
   gather_facts: yes
   become: yes
   roles:
