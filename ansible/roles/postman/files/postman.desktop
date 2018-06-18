@@ -2,7 +2,7 @@
 Version=1.0
 Type=Application
 Name=Postman
-Icon=/opt/Postman/resources/app/assets/icon.png
+Icon=/opt/Postman/app/resources/app/assets/icon.png
 Exec="/opt/Postman/Postman" --disable-gpu %f
 Comment=Supercharge your API workflow
 Categories=Development;Application;Utility;
