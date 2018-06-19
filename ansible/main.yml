@@ -14,7 +14,7 @@
     bosh_cli_version: "2.0.48"
     yq_linux_version: "1.14.0"
     terraform_version: "0.11.7"
-    bosh_bootloader_version: "6.7.9"
+    bosh_bootloader_version: "6.7.10"
     credhub_cli_version: "1.7.6"
     postman_version: "6.1.3"
     fly_version: "3.14.1"
