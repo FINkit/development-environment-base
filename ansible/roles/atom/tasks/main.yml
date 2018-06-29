@@ -3,3 +3,9 @@
     apt:
       deb="https://github.com/atom/atom/releases/download/v{{atom_version}}/atom-amd64.deb"
       autoremove=yes
+
+  - name: "install en_gb dictionary"
+    apt:
+      name=myspell-en-gb
+      state=present
+      autoremove=yes
