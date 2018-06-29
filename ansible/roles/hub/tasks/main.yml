@@ -20,10 +20,10 @@
       path: /opt/hub/hub.tgz
       state: absent
 
-  - name: overwrite git command with hub alias
-    lineinfile:
-      path: /home/vagrant/.bash_aliases
-      line: "alias git='/opt/hub/hub-linux-amd64-{{ hub_version }}/bin/hub'"
+  - name: add to path
+    file:
+      src: "/opt/hub/hub-linux-amd64-{{ hub_version }}/bin/hub"
+      dest: /usr/local/bin/hub
       owner: root
-      state: present
-      create: yes
+      group: root
+      state: link
