@@ -11,7 +11,7 @@
     gradle_version: "4.8.1"
     go_version: "1.10.3"
     compliance_masonry_version: "1.1.4"
-    bosh_cli_version: "2.0.48"
+    bosh_cli_version: "4.0.1"
     yq_linux_version: "1.14.0"
     terraform_version: "0.11.7"
     bosh_bootloader_version: "6.8.1"
