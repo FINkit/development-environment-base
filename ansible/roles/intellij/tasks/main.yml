@@ -1,5 +1,23 @@
 ---
-  - name: create intelli directory
+  - name:  acquire latest jetbrains updates
+    get_url:
+      url: https://www.jetbrains.com/updates/updates.xml
+      dest: ./intellij_updates.xml
+      force: yes
+
+  - name: extract latest IDEA release build
+    xml:
+      path: ./intellij_updates.xml
+      xpath: //channel[@id='IDEA_Release']/build[1]
+      content: attribute
+      attribute: version
+    register: latest_intellij_version
+
+  - name: set intellij version
+    set_fact:
+      intellij_version: "{{ latest_intellij_version.matches[0].build.version }}"
+
+  - name: create directory
     file:
       path=/opt/intellij/IC/{{ intellij_version }}/
       state=directory
