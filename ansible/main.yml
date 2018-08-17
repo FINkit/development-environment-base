@@ -1,7 +1,7 @@
 ---
 - hosts: all
   vars:
-    cf_cli_version: "6.37.0"
+    cf_cli_version: "6.38.0"
     maven_version: "3.5.4"
     sts_version: "3.9.5"
     eclipse_version: "4.8.0"
@@ -9,13 +9,13 @@
     atom_version: "1.26.1"
     gradle_version: "4.9"
     go_version: "1.10.3"
-    compliance_masonry_version: "1.1.4"
+    compliance_masonry_version: "1.1.5"
     bosh_cli_version: "4.0.1"
     yq_linux_version: "1.14.0"
-    terraform_version: "0.11.7"
+    terraform_version: "0.11.8"
     bosh_bootloader_version: "6.9.0"
     credhub_cli_version: "1.7.7"
-    postman_version: "6.1.4"
+    postman_version: "6.2.4"
     fly_version: "3.14.1"
     groovy_version: "2.4.15"
     vscode_version: "1.23.0"
