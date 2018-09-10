@@ -1,0 +1,22 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: engineerbetter/pcf-ops
+
+inputs:
+- name: pipeline
+- name: dependency-versions
+- name: updated-dependency-versions
+
+run:
+  path: pipeline/tasks/get-new-versions/task
+
+params:
+  IGNORE_LIST: "resource_version_pipeline|resource_version_dependency-versions|resource_version_snapshot-metadata"
+  VERSIONS_FILE: versions.yml
+  CHANGED_FILE: changed
+
+outputs:
+- name: changed-versions
