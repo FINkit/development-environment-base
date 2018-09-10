@@ -1,0 +1,19 @@
+#!/bin/bash -eux
+
+IGNORE_LIST="resource_version_pipeline|resource_version_dev-env-dependency-versions|resource_version_snapshot-metadata"
+
+function find_changed_resources() {
+  for changed_line in $(sdiff dependency-versions/${VERSIONS_FILE} updated-dependency-versions/${VERSIONS_FILE} | grep -n '|' | awk -F':' '{print $1}')
+  do
+    resource_name_number=$(expr ${changed_line} - 1)
+    resource=$(head -${resource_name_number} updated-dependency-versions/${VERSIONS_FILE} | tail -1)
+    if [ $(echo ${resource} | egrep -c ${IGNORE_LIST}) -eq 0 ]
+    then
+      resource_name="$(echo ${resource} | sed 's/\://'|awk -F'_' '{print $3}' | tr -d '[:space:]')"
+      resource_ref="$(head -${changed_line} updated-dependency-versions/${VERSIONS_FILE} | tail -1 | awk -F':' '{print $2}' | tr -d '[:space:]')"
+      echo "There is a new version of *${resource_name}* available: *${resource_ref}*" >> changed-versions/${CHANGED_FILE}
+    fi
+  done
+}
+
+find_changed_resources

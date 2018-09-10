@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+
+fly login -t NOTREQUIRED -c $CONCOURSE_URL -n $CONCOURSE_TEAM -u $CONCOURSE_USERNAME -p $CONCOURSE_PASSWORD
+fly -t NOTREQUIRED sync
+
+export ATC_BEARER_TOKEN=$(fly login -t NOTREQUIRED -c $CONCOURSE_URL -n $CONCOURSE_TEAM --verbose -u $CONCOURSE_USERNAME -p $CONCOURSE_PASSWORD 2>&1 | grep Bearer | grep -v Cookie | jq -r '.value')
+
+stopover $CONCOURSE_URL $CONCOURSE_TEAM $CONCOURSE_PIPELINE $(cat snapshot-metadata/build-job-name) $(cat snapshot-metadata/build-name) > updated-dependency-versions/${SNAPSHOT_VERSIONS_FILE}
