@@ -46,10 +46,6 @@ resources:
   type: slack-notification
   source:
     url: ((slack.hook))
-- name: ubuntu-vulnerability-feed
-  type: rss-resource
-  source:
-    url: https://rss.packetstormsecurity.com/files/os/ubuntu/
 - name: snapshot-metadata
   type: snapshot-metadata
 - name: dev-env-dependency-versions
@@ -58,13 +54,6 @@ resources:
     bucket: ((dev-env-dependency-versions.bucket))
     versioned_file: ((dev-env-dependency-versions.file))
     json_key: ((dev-env-dependency-versions.key))
-- name: slack-notification-resource
-  type: git
-  check_every: 1h
-  source:
-    uri: https://github.com/cloudfoundry-community/slack-notification-resource
-    branch: master
-    tag_filter: "v*"
 - name: bosh-cli
   type: git
   check_every: 1h
