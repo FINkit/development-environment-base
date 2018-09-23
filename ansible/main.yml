@@ -5,7 +5,6 @@
     maven_version: "3.5.4"
     sts_version: "3.9.6"
     eclipse_version: "4.9.0"
-    docker_compose_version: "1.22.0"
     atom_version: "1.26.1"
     gradle_version: "4.10.2"
     go_version: "1.11"
@@ -27,8 +26,6 @@
     - developer_packages
     - git
     - atom
-    - docker_service
-    - docker_compose
     - cf_cli
     - maven
     - gradle

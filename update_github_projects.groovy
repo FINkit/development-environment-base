@@ -15,7 +15,6 @@ def projects = [
 //    'mikefarah/yq':'yq_linux_version',
     'hashicorp/terraform':'terraform_version',
     'atom/atom':'atom_version',
-    'docker/compose':'docker_compose_version',
     'golang/go':'go_version',
     'gradle/gradle':'gradle_version',
     'concourse/concourse':'fly_version',
