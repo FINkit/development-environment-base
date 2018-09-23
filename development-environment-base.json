@@ -8,7 +8,7 @@
     "iso_file": "http://releases.ubuntu.com/16.04/ubuntu-16.04.5-server-amd64.iso",
     "preseed_file": "base.seed",
     "sudo_password": "vagrant",
-    "vagrant_box_file": "build/{{isotime \"2006-01-02-15-10\"}}/{{env `ATLAS_NAME`}}.box",
+    "vagrant_box_file": "build/devenv.box",
     "vm_name": "{{env `ATLAS_NAME`}}",
     "vm_type": "Ubuntu_64",
     "vm_cpus": "1",
@@ -113,7 +113,6 @@
     [
       {
         "compression_level": 9,
-        "keep_input_artifact": true,
         "only": [
           "vbox"
         ],
