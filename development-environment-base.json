@@ -34,8 +34,6 @@
           "./ansible/roles/developer_packages",
           "./ansible/roles/git",
           "./ansible/roles/atom",
-          "./ansible/roles/docker_service",
-          "./ansible/roles/docker_compose",
           "./ansible/roles/cf_cli",
           "./ansible/roles/maven",
           "./ansible/roles/gradle",
@@ -55,7 +53,8 @@
           "./ansible/roles/json2yaml",
           "./ansible/roles/vscode",
           "./ansible/roles/hub"
-        ]
+        ],
+	"galaxy_file": "requirements.yml"
      },
      {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
