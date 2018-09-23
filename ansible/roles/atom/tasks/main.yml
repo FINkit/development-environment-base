@@ -6,6 +6,6 @@
 
   - name: "install en_gb dictionary"
     apt:
-      name=myspell-en-gb
+      name=hunspell-en-gb
       state=present
       autoremove=yes
