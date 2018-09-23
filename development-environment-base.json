@@ -11,8 +11,8 @@
     "vagrant_box_file": "build/{{isotime \"2006-01-02-15-10\"}}/{{env `ATLAS_NAME`}}.box",
     "vm_name": "{{env `ATLAS_NAME`}}",
     "vm_type": "Ubuntu_64",
-    "vm_cpus": "1",
-    "vm_ram_size": "2048",
+    "vm_cpus": "4",
+    "vm_ram_size": "8192",
     "vm_vram_size": "64",
     "vm_disk_size": "30720",
     "version": "1.0.{{timestamp}}"
