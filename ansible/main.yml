@@ -26,6 +26,7 @@
     - developer_packages
     - git
     - atom
+    - geerlingguy.docker
     - cf_cli
     - maven
     - gradle
