@@ -43,3 +43,5 @@
       - python
       - python-pip
       - locate
+      - curl
+      - build-essential
