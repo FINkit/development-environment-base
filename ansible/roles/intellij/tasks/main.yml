@@ -5,6 +5,10 @@
       dest: ./intellij_updates.xml
       force: yes
 
+  - name: download lxml python library
+    pip:
+      name: lxml
+
   - name: extract latest IDEA release build
     xml:
       path: ./intellij_updates.xml

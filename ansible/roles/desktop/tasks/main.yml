@@ -1,0 +1,7 @@
+---
+  - name: install gnome3 packages
+    apt:
+      name: "{{ item }}"
+    with_items:
+      - gnome-session
+      - gdm3

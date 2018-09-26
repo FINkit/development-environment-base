@@ -3,9 +3,9 @@
     "atlas_username": "{{env `ATLAS_USERNAME`}}",
     "cloud_token": "{{env `VAGRANT_CLOUD_TOKEN`}}",
     "cloud_endpoint": "{{env `VAGRANT_CLOUD_ENDPOINT`}}",
-    "iso_checksum": "c94de1cc2e10160f325eb54638a5b5aa38f181d60ee33dae9578d96d932ee5f8",
+    "iso_checksum": "a5b0ea5918f850124f3d72ef4b85bda82f0fcd02ec721be19c1a6952791c8ee8",
     "iso_checksum_type": "sha256",
-    "iso_file": "http://releases.ubuntu.com/16.04/ubuntu-16.04.5-server-amd64.iso",
+    "iso_file": "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.1-server-amd64.iso",
     "preseed_file": "base.seed",
     "sudo_password": "vagrant",
     "vagrant_box_file": "build/devenv.box",
@@ -15,22 +15,23 @@
     "vm_ram_size": "8192",
     "vm_vram_size": "64",
     "vm_disk_size": "30720",
-    "version": "1.0.{{timestamp}}"
+    "version": "2.0.{{timestamp}}-beta"
   },
   "provisioners": [
-    {
-      "type": "shell",
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "scripts": [
-        "scripts/enable_passwordless_sudo.sh",
-        "scripts/ansible.sh"
-       ]
+     {
+        "type": "shell",
+        "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+        "script": "scripts/ansible.sh"
+     },
+     {
+        "type": "shell",
+        "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+        "script": "scripts/setup.sh"
      },
      {
         "type": "ansible-local",
         "playbook_file": "./ansible/main.yml",
         "role_paths": [
-          "./ansible/roles/disable_auto_update",
           "./ansible/roles/developer_packages",
           "./ansible/roles/git",
           "./ansible/roles/atom",
@@ -39,7 +40,7 @@
           "./ansible/roles/gradle",
           "./ansible/roles/intellij",
           "./ansible/roles/sts",
-          "./ansible/roles/unity_desktop",
+          "./ansible/roles/desktop",
           "./ansible/roles/go",
           "./ansible/roles/postman",
           "./ansible/roles/compliance_masonry",
@@ -70,17 +71,29 @@
       "name": "vbox",
       "type": "virtualbox-iso",
       "boot_command": [
-        "<enter><wait><f6><esc><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-        " /install/vmlinuz",
-        " debconf/priority=critical",
-        " locale=en_GB console-setup/layoutcode=gb",
-        " noapic hostname={{user `vm_name`}}",
-        " auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `preseed_file`}}",
+        "<esc><wait>",
+        "<esc><wait>",
+        "<enter><wait>",
+        "/install/vmlinuz",
+        " auto",
+        " console-setup/ask_detect=false",
+        " console-setup/layoutcode=gb",
+        " console-setup/modelcode=pc105",
+        " debconf/frontend=noninteractive",
+        " debian-installer=en_GB",
+        " fb=false",
         " initrd=/install/initrd.gz",
-        " -- <enter>"
+        " kbd-chooser/method=gb",
+        " keyboard-configuration/layout=UK",
+        " keyboard-configuration/variant=UK",
+        " locale=en_GB",
+        " netcfg/get_domain=vm",
+        " netcfg/get_hostname=vagrant",
+        " grub-installer/bootdev=/dev/sda",
+        " noapic",
+        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg",
+        " --",
+        " <enter><wait>"
       ],
       "boot_wait": "10s",
       "disk_size": "{{user `vm_disk_size`}}",
@@ -92,8 +105,7 @@
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_interface": "sata",
       "iso_url": "{{user `iso_file`}}",
-      "output_directory": "output-{{user `vm_name` }}-{{isotime \"2006-01-02\"}}",
-      "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
+      "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
       "shutdown_timeout": "5m",
       "ssh_username": "vagrant",
       "ssh_password": "{{user `sudo_password`}}",
