@@ -45,3 +45,5 @@
       - locate
       - curl
       - build-essential
+      - vim-gui-common
+      - vim-runtime
