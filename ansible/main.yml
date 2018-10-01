@@ -19,6 +19,8 @@
     groovy_version: "2.4.15"
     vscode_version: "1.23.0"
     hub_version: "2.5.1"
+    docker_users:
+      - vagrant
   gather_facts: yes
   become: yes
   roles:
