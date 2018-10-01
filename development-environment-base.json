@@ -18,53 +18,53 @@
     "version": "2.0.{{timestamp}}"
   },
   "provisioners": [
-     {
-        "type": "shell",
-        "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-        "script": "scripts/ansible.sh"
-     },
-     {
-        "type": "shell",
-        "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-        "script": "scripts/setup.sh"
-     },
-     {
-        "type": "ansible-local",
-        "playbook_file": "./ansible/main.yml",
-        "role_paths": [
-          "./ansible/roles/developer_packages",
-          "./ansible/roles/git",
-          "./ansible/roles/atom",
-          "./ansible/roles/cf_cli",
-          "./ansible/roles/maven",
-          "./ansible/roles/gradle",
-          "./ansible/roles/intellij",
-          "./ansible/roles/sts",
-          "./ansible/roles/desktop",
-          "./ansible/roles/go",
-          "./ansible/roles/postman",
-          "./ansible/roles/compliance_masonry",
-          "./ansible/roles/gcloud",
-          "./ansible/roles/newrelic",
-          "./ansible/roles/bosh",
-          "./ansible/roles/fly",
-          "./ansible/roles/credhub",
-          "./ansible/roles/groovy",
-          "./ansible/roles/taurus",
-          "./ansible/roles/json2yaml",
-          "./ansible/roles/vscode",
-          "./ansible/roles/hub"
-        ],
-        "galaxy_file": "requirements.yml"
-     },
-     {
+    {
+      "type": "shell",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "scripts/ansible.sh"
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "scripts/setup.sh"
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "./ansible/main.yml",
+      "role_paths": [
+        "./ansible/roles/developer_packages",
+        "./ansible/roles/git",
+        "./ansible/roles/atom",
+        "./ansible/roles/cf_cli",
+        "./ansible/roles/maven",
+        "./ansible/roles/gradle",
+        "./ansible/roles/intellij",
+        "./ansible/roles/sts",
+        "./ansible/roles/desktop",
+        "./ansible/roles/go",
+        "./ansible/roles/postman",
+        "./ansible/roles/compliance_masonry",
+        "./ansible/roles/gcloud",
+        "./ansible/roles/newrelic",
+        "./ansible/roles/bosh",
+        "./ansible/roles/fly",
+        "./ansible/roles/credhub",
+        "./ansible/roles/groovy",
+        "./ansible/roles/taurus",
+        "./ansible/roles/json2yaml",
+        "./ansible/roles/vscode",
+        "./ansible/roles/hub"
+      ],
+      "galaxy_file": "requirements.yml"
+    },
+    {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "only": [
         "vbox"
       ],
       "script": "scripts/cleanup.sh",
       "type": "shell"
-     }
+    }
   ],
   "builders": [
     {
@@ -112,9 +112,24 @@
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
       "vboxmanage": [
-        [ "modifyvm", "{{.Name}}", "--cpus", "{{user `vm_cpus`}}" ],
-        [ "modifyvm", "{{.Name}}", "--memory", "{{user `vm_ram_size`}}" ],
-        [ "modifyvm", "{{.Name}}", "--vram", "{{user `vm_vram_size`}}" ]
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "{{user `vm_cpus`}}"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "{{user `vm_ram_size`}}"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--vram",
+          "{{user `vm_vram_size`}}"
+        ]
       ],
       "virtualbox_version_file": ".vbox_version"
     }
