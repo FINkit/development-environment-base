@@ -80,3 +80,6 @@ Save the file (_Vagrantfile_) and within the same directory, run:
 vagrant up
 ```
 See [Vagrant cli commands](https://www.vagrantup.com/docs/cli/) for more information.
+
+## thanks
+Credit to @geerlingguy for his [image](https://github.com/geerlingguy/packer-ubuntu-1804), on which this is based
