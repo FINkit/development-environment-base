@@ -24,7 +24,6 @@
       - openjdk-8-jdk
       - openjdk-8-source
       - ant
-      - gnome-terminal
       - ngrep
       - nmap
       - sslscan
