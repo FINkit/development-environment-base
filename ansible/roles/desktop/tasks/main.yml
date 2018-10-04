@@ -1,7 +1,6 @@
 ---
-  - name: install gnome3 packages
+  - name: install packages
     apt:
       name: "{{ item }}"
     with_items:
-      - gnome-session
-      - gdm3
+      - xubuntu-core
