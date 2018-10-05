@@ -1,24 +1,24 @@
 ---
   - name: install dependencies
     apt:
-        name={{ item }}
-        state=present
-        autoremove=yes
-    with_items:
-        - build-essential
-        - zlibc
-        - zlib1g-dev
-        - ruby
-        - ruby-dev
-        - openssl
-        - libxslt-dev
-        - libxml2-dev
-        - libssl-dev
-        - libreadline6-dev
-        - libyaml-dev
-        - libsqlite3-dev
-        - sqlite3
-        - libcurl4-openssl-dev
+      name: "{{ packages }}"
+      autoremove: yes
+    vars:
+      packages:
+      - build-essential
+      - zlibc
+      - zlib1g-dev
+      - ruby
+      - ruby-dev
+      - openssl
+      - libxslt-dev
+      - libxml2-dev
+      - libssl-dev
+      - libreadline6-dev
+      - libyaml-dev
+      - libsqlite3-dev
+      - sqlite3
+      - libcurl4-openssl-dev
 
   - name: download bosh-cli
     get_url:

@@ -1,20 +1,20 @@
 ---
   - name: add git-core ppa
     apt_repository:
-      repo='ppa:git-core/ppa'
+      repo: 'ppa:git-core/ppa'
 
   - name: update
     apt:
-      upgrade=dist
-      autoremove=yes
-      update_cache=yes
+      upgrade: dist
+      autoremove: yes
+      update_cache: yes
 
   - name: install git
     apt:
-      name={{ item }}
-      state=present
-      autoremove=yes
-    with_items:
+      name: "{{ packages }}"
+      autoremove: yes
+    vars:
+      packages:
       - gitk
       - git-gui
 
