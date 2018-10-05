@@ -1,16 +1,16 @@
 ---
   - name: update
     apt:
-      upgrade=dist
-      autoremove=yes
-      update_cache=yes
+      upgrade: dist
+      autoremove: yes
+      update_cache: yes
 
   - name: install packages
     apt:
-      name={{ item }}
-      state=present
-      autoremove=yes
-    with_items:
+      name: "{{ packages }}"
+      autoremove: yes
+    vars:
+      packages:
       - putty-tools
       - dos2unix
       - wmctrl

@@ -1,6 +1,4 @@
 ---
   - name: install packages
     apt:
-      name: "{{ item }}"
-    with_items:
-      - xubuntu-core
+      name: xubuntu-core
