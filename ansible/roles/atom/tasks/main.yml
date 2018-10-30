@@ -1,11 +1,11 @@
 ---
   - name: "install atom using deb link"
     apt:
-      deb="https://github.com/atom/atom/releases/download/v{{atom_version}}/atom-amd64.deb"
-      autoremove=yes
+      deb: "https://github.com/atom/atom/releases/download/v{{ atom_version }}/atom-amd64.deb"
+      autoremove: yes
 
   - name: "install en_gb dictionary"
     apt:
-      name=hunspell-en-gb
-      state=present
-      autoremove=yes
+      name: hunspell-en-gb
+      state: present
+      autoremove: yes

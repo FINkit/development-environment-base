@@ -1,35 +1,35 @@
 ---
   - name: download the file
     get_url:
-      url="https://archive.apache.org/dist/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz"
-      dest="/opt/apache-maven-{{ maven_version }}.tar.gz"
+      url: "https://archive.apache.org/dist/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz"
+      dest: "/opt/apache-maven-{{ maven_version }}.tar.gz"
 
   - name: decompress and unarchive the binary
     unarchive:
-      src="/opt/apache-maven-{{ maven_version }}.tar.gz"
-      dest=/opt
-      owner=vagrant
+      src: "/opt/apache-maven-{{ maven_version }}.tar.gz"
+      dest: /opt
+      owner: vagrant
 
   - name: Define M2_HOME
     lineinfile:
-      dest=/etc/environment
-      regexp=^M2_HOME=
-      line=M2_HOME=/opt/apache-maven-{{ maven_version }}/
+      dest: /etc/environment
+      regexp: '^M2_HOME='
+      line: "M2_HOME=/opt/apache-maven-{{ maven_version }}/"
 
   - name: Define M2
     lineinfile:
-      dest=/etc/environment
-      regexp=^M2=
-      line=M2=/opt/apache-maven-{{ maven_version }}/bin
+      dest: /etc/environment
+      regexp: '^M2='
+      line: "M2=/opt/apache-maven-{{ maven_version }}/bin"
 
   - name: Update PATH
     replace:
-      dest=/etc/environment
-      regexp='^(PATH.*)(")$'
-      replace='\1:/opt/apache-maven-{{ maven_version }}/bin\2'
+      dest: /etc/environment
+      regexp: '^(PATH.*)(")$'
+      replace: '\1:/opt/apache-maven-{{ maven_version }}/bin\2'
     become: true
 
   - name: remove binary
     file:
-      path=/opt/apache-maven-{{ maven_version }}.tar.gz
-      state=absent
+      path: "/opt/apache-maven-{{ maven_version }}.tar.gz"
+      state: absent

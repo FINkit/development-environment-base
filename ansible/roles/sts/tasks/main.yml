@@ -1,48 +1,47 @@
 ---
   - name: create eclipse directory
     file:
-      path=/opt/sts/sts-{{ sts_version }}/
-      state=directory
-      mode=0777
+      path: "/opt/sts/sts-{{ sts_version }}/"
+      state: directory
+      mode: 0777
 
   - name: download the sha1 checksum file
-    shell: curl http://download.springsource.com/release/STS/{{ sts_version }}.RELEASE/dist/e{{ eclipse_version[0:3] }}/spring-tool-suite-{{sts_version }}.RELEASE-e{{ eclipse_version }}-linux-gtk-x86_64.tar.gz.sha1
+    shell: "curl http://download.springsource.com/release/STS/{{ sts_version }}.RELEASE/dist/e{{ eclipse_version[0:3] }}/spring-tool-suite-{{ sts_version }}.RELEASE-e{{ eclipse_version }}-linux-gtk-x86_64.tar.gz.sha1"
     register: sts_sha1_checksum
 
   - name: download the file
     get_url:
-      url="http://download.springsource.com/release/STS/{{ sts_version }}.RELEASE/dist/e{{ eclipse_version[0:3] }}/spring-tool-suite-{{sts_version }}.RELEASE-e{{ eclipse_version }}-linux-gtk-x86_64.tar.gz"
-      dest="/opt/sts/"
-      checksum="sha1:{{ sts_sha1_checksum.stdout }}"
+      url: "http://download.springsource.com/release/STS/{{ sts_version }}.RELEASE/dist/e{{ eclipse_version[0:3] }}/spring-tool-suite-{{ sts_version }}.RELEASE-e{{ eclipse_version }}-linux-gtk-x86_64.tar.gz"
+      dest: "/opt/sts/"
+      checksum: "sha1:{{ sts_sha1_checksum.stdout }}"
 
   - name: unarchive
-    shell:
-      tar zxf "/opt/sts/spring-tool-suite-{{sts_version }}.RELEASE-e{{ eclipse_version }}-linux-gtk-x86_64.tar.gz" -C "/opt/sts/sts-{{ sts_version }}" --strip 1 && chown -R vagrant:vagrant /opt/sts/
+    shell: 'tar zxf "/opt/sts/spring-tool-suite-{{ sts_version }}.RELEASE-e{{ eclipse_version }}-linux-gtk-x86_64.tar.gz" -C "/opt/sts/sts-{{ sts_version }}" --strip 1 && chown -R vagrant:vagrant /opt/sts/'
 
   - name: add symlink
     file:
-      src="/opt/sts/sts-{{ sts_version }}/sts-{{ sts_version }}.RELEASE/STS"
-      dest="/usr/bin/STS"
-      state=link
+      src: "/opt/sts/sts-{{ sts_version }}/sts-{{ sts_version }}.RELEASE/STS"
+      dest: "/usr/bin/STS"
+      state: link
 
   - name: upload icon file
     copy:
-      src={{ item.src }}
-      dest={{ item.dest }}
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
     with_items:
     - { src: 'spring-sts.desktop', dest: '/tmp/spring-sts.desktop' }
 
   - name: update icon file
     replace:
-      dest=/tmp/spring-sts.desktop
-      regexp='^(.*)REPLACE_STS_PATH(.*)$'
-      replace='\1/opt/sts/sts-{{ sts_version }}/sts-{{ sts_version }}.RELEASE\2'
+      dest: /tmp/spring-sts.desktop
+      regexp: '^(.*)REPLACE_STS_PATH(.*)$'
+      replace: '\1/opt/sts/sts-{{ sts_version }}/sts-{{ sts_version }}.RELEASE\2'
 
   - name: ensure desktop shortcut directory exists
     file:
-      path=/usr/share/desktop-directories/
-      state=directory
-      mode=0755
+      path: /usr/share/desktop-directories/
+      state: directory
+      mode: 0755
     become: true
 
   - name: set sts icon
@@ -51,5 +50,5 @@
 
   - name: remove the binaries
     file:
-      path=/opt/sts/spring-tool-suite-{{sts_version }}.RELEASE-e{{ eclipse_version }}-linux-gtk-x86_64.tar.gz
-      state=absent
+      path: "/opt/sts/spring-tool-suite-{{ sts_version }}.RELEASE-e{{ eclipse_version }}-linux-gtk-x86_64.tar.gz"
+      state: absent

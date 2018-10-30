@@ -1,6 +1,6 @@
 ---
   - name: install credhub
     unarchive:
-      src: https://github.com/cloudfoundry-incubator/credhub-cli/releases/download/{{credhub_cli_version}}/credhub-linux-{{credhub_cli_version}}.tgz
+      src: "https://github.com/cloudfoundry-incubator/credhub-cli/releases/download/{{ credhub_cli_version }}/credhub-linux-{{ credhub_cli_version }}.tgz"
       dest: /usr/local/bin
       remote_src: True

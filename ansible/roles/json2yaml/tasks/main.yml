@@ -1,5 +1,5 @@
 ---
   - name: install json2yaml
     pip:
-      name=json2yaml
-      state=present
+      name: json2yaml
+      state: present

@@ -1,23 +1,30 @@
 ---
 - name: Create dir
-  file: path=/opt/gradle state=directory
+  file:
+    path: /opt/gradle
+    state: directory
   become: true
 
 - name: Download
-  get_url: dest="/opt/gradle" url=https://services.gradle.org/distributions/gradle-{{gradle_version}}-bin.zip
+  get_url:
+    dest: "/opt/gradle"
+    url: "https://services.gradle.org/distributions/gradle-{{ gradle_version }}-bin.zip"
   become: true
 
 - name: Extract zip
   unarchive:
-    src: "/opt/gradle/gradle-{{gradle_version}}-bin.zip"
+    src: "/opt/gradle/gradle-{{ gradle_version }}-bin.zip"
     dest: "/opt/gradle"
 
 - name: Add to path
-  file: src="/opt/gradle/gradle-{{gradle_version}}/bin/gradle"
-    dest=/usr/local/bin/gradle
-    owner=root
-    group=root
-    state=link
+  file:
+    src: "/opt/gradle/gradle-{{ gradle_version }}/bin/gradle"
+    dest: /usr/local/bin/gradle
+    owner: root
+    group: root
+    state: link
 
 - name: Delete zip
-  file: path=/opt/gradle/gradle-{{gradle_version}}-bin.zip state=absent
+  file:
+    path: "/opt/gradle/gradle-{{ gradle_version }}-bin.zip"
+    state: absent
