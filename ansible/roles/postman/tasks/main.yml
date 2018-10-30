@@ -17,10 +17,8 @@
 
   - name: upload icon file
     copy:
-      src: "{{ item.src }}"
-      dest: "{{ item.dest }}"
-    with_items:
-    - { src: 'postman.desktop', dest: '/tmp/postman.desktop' }
+      src: postman.desktop
+      dest: /tmp/postman.desktop
 
   - name: ensure desktop shortcut directory exists
     file:
