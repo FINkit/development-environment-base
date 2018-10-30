@@ -26,10 +26,8 @@
 
   - name: upload icon file
     copy:
-      src: "{{ item.src }}"
-      dest: "{{ item.dest }}"
-    with_items:
-    - { src: 'spring-sts.desktop', dest: '/tmp/spring-sts.desktop' }
+      src: spring-sts.desktop
+      dest: /tmp/spring-sts.desktop
 
   - name: update icon file
     replace:

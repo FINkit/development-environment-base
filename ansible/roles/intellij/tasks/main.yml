@@ -60,10 +60,8 @@
 
   - name: upload icon file
     copy:
-      src: "{{ item.src }}"
-      dest: "{{ item.dest }}"
-    with_items:
-    - { src: 'jetbrains-idea-ce.desktop', dest: '/tmp/jetbrains-idea-ce.desktop' }
+      src: jetbrains-idea-ce.desktop
+      dest: /tmp/jetbrains-idea-ce.desktop
 
   - name: update icon file
     replace:
