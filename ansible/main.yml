@@ -38,7 +38,6 @@
     - postman
     - compliance_masonry
     - gcloud
-    - newrelic
     - bosh
     - fly
     - credhub
