@@ -1,19 +1,24 @@
 ---
 - name: Create dir
-  file: path=/opt/fly state=directory
+  file:
+    path: /opt/fly
+    state: directory
   become: true
 
 - name: download the file
   get_url:
-    url="https://github.com/concourse/concourse/releases/download/v{{ fly_version }}/fly_linux_amd64"
-    dest="/opt/fly/fly_linux_amd64"
+    url: "https://github.com/concourse/concourse/releases/download/v{{ fly_version }}/fly_linux_amd64"
+    dest: "/opt/fly/fly_linux_amd64"
 
 - name: Make executable
-  file: dest="/opt/fly/fly_linux_amd64" mode=a+x
+  file:
+    dest: "/opt/fly/fly_linux_amd64"
+    mode: a+x
 
 - name: Add to path
-  file: src="/opt/fly/fly_linux_amd64"
-    dest=/usr/local/bin/fly
-    owner=root
-    group=root
-    state=link
+  file:
+    src: "/opt/fly/fly_linux_amd64"
+    dest: /usr/local/bin/fly
+    owner: root
+    group: root
+    state: link

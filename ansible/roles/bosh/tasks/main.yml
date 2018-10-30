@@ -22,7 +22,7 @@
 
   - name: download bosh-cli
     get_url:
-      url: https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-{{bosh_cli_version}}-linux-amd64
+      url: "https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-{{ bosh_cli_version }}-linux-amd64"
       dest: /usr/local/bin/bosh2
       mode: "a+x"
 
@@ -44,18 +44,18 @@
 
   - name: install yq-linux
     get_url:
-        url: https://github.com/mikefarah/yq/releases/download/{{yq_linux_version}}/yq_linux_amd64
+        url: "https://github.com/mikefarah/yq/releases/download/{{ yq_linux_version }}/yq_linux_amd64"
         dest: /usr/local/bin/yaml
         mode: "a+x"
 
   - name: install terraform
     unarchive:
-        src: https://releases.hashicorp.com/terraform/{{terraform_version}}/terraform_{{terraform_version}}_linux_amd64.zip
+        src: "https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip"
         dest: /usr/local/bin
         remote_src: True
 
   - name: install bosh-bootloader
     get_url:
-      url: https://github.com/cloudfoundry/bosh-bootloader/releases/download/v{{bosh_bootloader_version}}/bbl-v{{bosh_bootloader_version}}_linux_x86-64
+      url: "https://github.com/cloudfoundry/bosh-bootloader/releases/download/v{{ bosh_bootloader_version }}/bbl-v{{ bosh_bootloader_version }}_linux_x86-64"
       dest: /usr/local/bin/bbl
       mode: "a+x"

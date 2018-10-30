@@ -7,7 +7,7 @@
 
   - name: download archive
     get_url:
-      url: https://github.com/github/hub/releases/download/v{{ hub_version }}/hub-linux-amd64-{{ hub_version }}.tgz
+      url: "https://github.com/github/hub/releases/download/v{{ hub_version }}/hub-linux-amd64-{{ hub_version }}.tgz"
       dest: /opt/hub/hub.tgz
 
   - name: extract archive

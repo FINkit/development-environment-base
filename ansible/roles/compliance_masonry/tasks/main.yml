@@ -1,8 +1,8 @@
 ---
   - name: download compliance-masonry
     get_url:
-      url=https://github.com/opencontrol/compliance-masonry/releases/download/v{{ compliance_masonry_version }}/compliance-masonry_{{ compliance_masonry_version }}_linux_amd64.tar.gz
-      dest=/tmp/compliance-masonry.tar.gz
+      url: "https://github.com/opencontrol/compliance-masonry/releases/download/v{{ compliance_masonry_version }}/compliance-masonry_{{ compliance_masonry_version }}_linux_amd64.tar.gz"
+      dest: /tmp/compliance-masonry.tar.gz
 
   - name: make tmp directory
     file:
@@ -12,27 +12,27 @@
 
   - name: extract
     unarchive:
-      src=/tmp/compliance-masonry.tar.gz
-      dest=/tmp/compliance
+      src: /tmp/compliance-masonry.tar.gz
+      dest: /tmp/compliance
 
   - name: install
     copy:
-      src=/tmp/compliance/compliance-masonry
-      dest=/usr/local/bin/
-      mode=0755
+      src: /tmp/compliance/compliance-masonry
+      dest: /usr/local/bin/
+      mode: 0755
 
   - name: install
     copy:
-      src=/tmp/compliance/masonry
-      dest=/usr/local/bin/
-      mode=0755
+      src: /tmp/compliance/masonry
+      dest: /usr/local/bin/
+      mode: 0755
 
   - name: delete binary
     file:
-      path=/tmp/compliance-masonry.tar.gz
-      state=absent
+      path: /tmp/compliance-masonry.tar.gz
+      state: absent
 
   - name: delete temp files
     file:
-      path=/tmp/compliance/
-      state=absent
+      path: /tmp/compliance/
+      state: absent
