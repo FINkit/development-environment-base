@@ -1,13 +1,13 @@
 ---
 - hosts: all
   vars:
-    cf_cli_version: "6.40.0"
-    maven_version: "3.5.4"
+    cf_cli_version: "6.40.1"
+    maven_version: "3.6.0"
     sts_version: "3.9.6"
     eclipse_version: "4.9.0"
     atom_version: "1.26.1"
     gradle_version: "4.10.2"
-    go_version: "1.11.1"
+    go_version: "1.11.2"
     compliance_masonry_version: "1.1.5"
     bosh_cli_version: "5.3.1"
     yq_linux_version: "1.14.0"
@@ -18,7 +18,7 @@
     fly_version: "3.14.1"
     groovy_version: "2.4.15"
     vscode_version: "1.23.0"
-    hub_version: "2.5.1"
+    hub_version: "2.6.0"
     docker_users:
       - vagrant
   gather_facts: yes
