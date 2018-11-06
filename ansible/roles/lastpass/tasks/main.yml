@@ -1,0 +1,44 @@
+---
+  - name: create lpass directory
+    file:
+      path: /home/vagrant/.local/share/lpass
+      state: directory
+      mode: 0755
+      owner: vagrant
+      group: vagrant
+
+  - name: install packages
+    apt:
+      name: "{{ packages }}"
+      autoremove: yes
+    vars:
+      packages:
+      - openssl
+      - libcurl4-openssl-dev
+      - libxml2
+      - libssl-dev
+      - libxml2-dev
+      - pinentry-curses
+      - xclip
+      - cmake
+      - build-essential
+      - pkg-config
+
+  - name: clone lastpass-cli git repository
+    git:
+      repo: https://github.com/lastpass/lastpass-cli
+      dest: /opt/lastpass-cli
+      version: "v{{ lastpass_version }}"
+    become: yes
+
+  - name: make
+    make:
+      chdir: /opt/lastpass-cli
+    become: yes
+
+  - name: copy built lpass script
+    copy:
+      src: /opt/lastpass-cli/build/lpass
+      dest: /usr/bin/lpass
+      mode: 0755
+    become: yes

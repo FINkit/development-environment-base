@@ -18,6 +18,7 @@ def projects = [
     'golang/go':'go_version',
     'gradle/gradle':'gradle_version',
     'concourse/concourse':'fly_version',
+    'lastpass/lastpass-cli':'lastpass_version',
     'github/hub':'hub_version'
 ]
 
