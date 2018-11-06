@@ -11,3 +11,6 @@ output*
 build
 *.box
 packer_cache
+
+#vagrant
+.vagrant
