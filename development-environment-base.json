@@ -52,6 +52,7 @@
         "./ansible/roles/taurus",
         "./ansible/roles/json2yaml",
         "./ansible/roles/vscode",
+        "./ansible/roles/lastpass",
         "./ansible/roles/hub"
       ],
       "galaxy_file": "requirements.yml"
