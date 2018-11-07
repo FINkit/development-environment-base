@@ -39,7 +39,6 @@
         "./ansible/roles/maven",
         "./ansible/roles/gradle",
         "./ansible/roles/intellij",
-        "./ansible/roles/sts",
         "./ansible/roles/desktop",
         "./ansible/roles/go",
         "./ansible/roles/postman",
