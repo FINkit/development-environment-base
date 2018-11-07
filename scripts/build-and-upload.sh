@@ -7,7 +7,7 @@ export ATLAS_NAME=development-environment-base
 
 set -e
 
-cd c:/users/hashilocal/workspace/development-environment-base
+cd $DEVENVBASE_REPO_LOC 
 
 git pull
 
