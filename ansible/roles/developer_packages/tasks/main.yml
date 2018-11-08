@@ -31,6 +31,7 @@
       - graphviz
       - zram-config
       - xdg-utils
+      - net-tools
       - chromium-browser
       - unzip
       - gnome-system-monitor
