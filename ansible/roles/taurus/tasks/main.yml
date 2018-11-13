@@ -5,7 +5,8 @@
       autoremove: yes
     vars:
       packages:
-      - default-jre-headless
+      - openjdk-8-jre-headless
+      - java-common
       - python-tk
       - python-dev
       - libxml2-dev
