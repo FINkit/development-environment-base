@@ -89,10 +89,3 @@
     file:
       path: /opt/intellij/IC/intellij.sha256
       state: absent
-
-  - name: ensure java 8 is set as default
-    alternatives:
-      link: /usr/bin/java
-      name: java
-      path: /usr/lib/jvm/java-8-openjdk-amd64/bin/java
-      priority: 100
