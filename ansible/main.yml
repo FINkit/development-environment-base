@@ -2,7 +2,7 @@
 - hosts: all
   vars:
     cf_cli_version: "6.40.1"
-    maven_version: "3.5.4"
+    maven_version: "3.6.0"
     atom_version: "1.26.1"
     gradle_version: "4.10.2"
     go_version: "1.11.2"
