@@ -15,4 +15,4 @@ git pull
 packer validate development-environment-base.json
 
 #Build and upload
-packer build -force -on-error=cleanup -parallel=false development-environment-base.json
+packer build -force -parallel=false -timestamp-ui development-environment-base.json
