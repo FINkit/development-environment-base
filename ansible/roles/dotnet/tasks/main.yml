@@ -1,0 +1,22 @@
+---
+- name: import Microsoft apt key
+  apt_key:
+    url: "https://packages.microsoft.com/keys/microsoft.asc"
+
+- name: install dependencies
+  apt:
+    deb: "https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb"
+    autoremove: yes
+
+- name: apt update
+  apt:
+    update_cache: yes
+
+- name: install packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - dotnet-sdk-2.1
+    - nuget
+
