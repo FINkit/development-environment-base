@@ -51,6 +51,7 @@
         "./ansible/roles/taurus",
         "./ansible/roles/json2yaml",
         "./ansible/roles/vscode",
+        "./ansible/roles/vault",
         "./ansible/roles/lastpass",
         "./ansible/roles/dotnet",
         "./ansible/roles/hub"
