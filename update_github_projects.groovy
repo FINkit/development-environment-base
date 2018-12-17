@@ -20,6 +20,7 @@ def projects = [
     'concourse/concourse':'fly_version',
     'lastpass/lastpass-cli':'lastpass_version',
     'Microsoft/vscode':'vscode_version',
+    'hashicorp/vault':'vault_version',
     'github/hub':'hub_version'
 ]
 
