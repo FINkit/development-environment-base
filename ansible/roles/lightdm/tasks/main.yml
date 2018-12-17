@@ -1,0 +1,6 @@
+---
+  - name: copy autologin config
+    copy:
+      src: lightdm.conf
+      dest: /etc/lightdm/lightdm.conf
+
