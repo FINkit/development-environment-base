@@ -19,6 +19,7 @@ def projects = [
     'gradle/gradle':'gradle_version',
     'concourse/concourse':'fly_version',
     'lastpass/lastpass-cli':'lastpass_version',
+    'Microsoft/vscode':'vscode_version',
     'github/hub':'hub_version'
 ]
 
