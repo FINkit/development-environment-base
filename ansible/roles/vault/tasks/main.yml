@@ -1,5 +1,30 @@
 ---
-  - name: "install vault"
-    apt:
-      deb: "https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_linux_amd64.zip"
-      autoremove: yes
+- name: Create dir
+  file:
+    path: /opt/vault
+    state: directory
+  become: true
+
+- name: Download
+  get_url:
+    dest: "/opt/vault"
+    url: "https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_linux_amd64.zip"
+  become: true
+
+- name: Extract zip
+  unarchive:
+    src: "/opt/vault/vault_{{ vault_version }}_linux_amd64.zip"
+    dest: "/opt/vault"
+
+- name: Add to path
+  file:
+    src: "/opt/vault/vault"
+    dest: /usr/local/bin/vault
+    owner: root
+    group: root
+    state: link
+
+- name: Delete zip
+  file:
+    path: "/opt/vault/vault_{{ vault_version }}_linux_amd64.zip"
+    state: absent
