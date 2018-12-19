@@ -1,13 +1,11 @@
 ---
   - name: Create vim directory
     file:
-      path: "/home/vagrant/{{ item.dir }}"
+      path: /home/vagrant/.vim
       state: directory
       owner: vagrant
       group: vagrant
       mode: 0775
-    with_items:
-    - { dir: '.vim' }
 
   - name: Creates directory
     file:
@@ -23,19 +21,14 @@
 
   - name: copy scripts to workspace
     copy:
-      src: "{{ item.src }}"
-      dest: "{{ item.dest }}"
+      src: vimrc
+      dest: /home/vagrant/.vimrc
       owner: vagrant
       group: vagrant
       mode: 0775
-    with_items:
-    - { src: 'vimrc', dest: '/home/vagrant/.vimrc' }
 
   - name: run dos2unix against scripts
-    command:
-      dos2unix "{{ item }}"
-    with_items:
-    - '/home/vagrant/.vimrc'
+    command: dos2unix /home/vagrant/.vimrc
 
   - name: download scala vim configuration
     get_url:
