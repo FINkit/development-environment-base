@@ -1,0 +1,14 @@
+- name: install pip3
+  apt:
+    name: python3-pip
+
+- name: install latest python 2 packages
+  pip:
+    name: ['pylint', 'requests']
+    state: latest
+
+- name: install latest python 3 packages
+  pip:
+    executable: pip3
+    name: pylint
+    state: latest

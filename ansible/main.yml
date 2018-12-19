@@ -25,14 +25,18 @@
   become: yes
   roles:
     - developer_packages
+    - pip_packages
     - git
     - atom
     - geerlingguy.docker
     - cf_cli
     - maven
     - gradle
+    - java
     - intellij
     - desktop
+    - lightdm
+    - power_management
     - go
     - postman
     - compliance_masonry
@@ -48,3 +52,5 @@
     - hub
     - lastpass
     - dotnet
+    - vi
+    - bash_alias

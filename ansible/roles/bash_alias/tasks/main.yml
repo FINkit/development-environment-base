@@ -1,0 +1,11 @@
+---
+  - name: Add command aliases
+    lineinfile:
+      path: /home/vagrant/.bash_aliases
+      owner: root
+      state: present
+      create: yes
+      line: "alias {{item.name}}='{{item.command}}'"
+    with_items:
+      - { name: 'syncmaster', command: 'git checkout master; git fetch --all; git merge --ff-only upstream/master; git push; git checkout -'}
+      - { name: 'pr', command: 'git push origin HEAD -u && hub pull-request'}
