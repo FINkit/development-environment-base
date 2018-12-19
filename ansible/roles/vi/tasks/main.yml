@@ -1,21 +1,21 @@
 ---
   - name: Create vim directory
     file:
-      path=/home/vagrant/{{ item.dir }}
-      state=directory
-      owner=vagrant
-      group=vagrant
-      mode=0775
+      path: "/home/vagrant/{{ item.dir }}"
+      state: directory
+      owner: vagrant
+      group: vagrant
+      mode: 0775
     with_items:
     - { dir: '.vim' }
 
   - name: Creates directory
     file:
-      path=/home/vagrant/.vim/{{ item.dir }}
-      state=directory
-      owner=vagrant
-      group=vagrant
-      mode=0775
+      path: "/home/vagrant/.vim/{{ item.dir }}"
+      state: directory
+      owner: vagrant
+      group: vagrant
+      mode: 0775
     with_items:
     - { dir: 'ftdetect' }
     - { dir: 'indent' }
@@ -23,11 +23,11 @@
 
   - name: copy scripts to workspace
     copy:
-      src={{ item.src }}
-      dest={{ item.dest }}
-      owner=vagrant
-      group=vagrant
-      mode=0775
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      owner: vagrant
+      group: vagrant
+      mode: 0775
     with_items:
     - { src: 'vimrc', dest: '/home/vagrant/.vimrc' }
 
@@ -39,9 +39,9 @@
 
   - name: download scala vim configuration
     get_url:
-      url=https://raw.githubusercontent.com/derekwyatt/vim-scala/master/syntax/scala.vim
-      dest={{ item.dest }}/{{ item.dir }}/scala.vim
-      mode=0440
+      url: https://raw.githubusercontent.com/derekwyatt/vim-scala/master/syntax/scala.vim
+      dest: "{{ item.dest }}/{{ item.dir }}/scala.vim"
+      mode: 0440
     with_items:
     - { dir: 'ftdetect', dest: '/home/vagrant/.vim' }
     - { dir: 'indent', dest: '/home/vagrant/.vim' }
