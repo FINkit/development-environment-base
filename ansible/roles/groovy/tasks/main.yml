@@ -28,3 +28,19 @@
   file:
     path: "/opt/groovy/apache-groovy-sdk-{{ groovy_version }}.zip"
     state: absent
+
+- name: Create .groovy dir
+  file:
+    path: /home/vargant/.groovy
+    state: directory
+    owner: vagrant
+    group: vagrant
+    mode: 0775
+
+- name: Copy default config file
+  copy:
+    src: defaultGrapeConfig.xml
+    dest: /home/vagrant/.groovy/defaultGrapeConfig.xml
+    owner: vagrant
+    group: vagrant
+    mode: 0775
