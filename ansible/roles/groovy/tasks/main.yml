@@ -31,7 +31,7 @@
 
 - name: Create .groovy dir
   file:
-    path: /home/vargant/.groovy
+    path: /home/vagrant/.groovy
     state: directory
     owner: vagrant
     group: vagrant
