@@ -50,6 +50,7 @@
     - json2yaml
     - vscode
     - vault
+    - safe
     - hub
     - lastpass
     - dotnet
