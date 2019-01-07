@@ -54,7 +54,13 @@
         "./ansible/roles/vault",
         "./ansible/roles/lastpass",
         "./ansible/roles/dotnet",
-        "./ansible/roles/hub"
+        "./ansible/roles/hub",
+        "./ansible/roles/bash_alias",
+        "./ansible/roles/java",
+        "./ansible/roles/lightdm",
+        "./ansible/roles/pip_packages",
+        "./ansible/roles/power_management",
+        "./ansible/roles/vi"
       ],
       "galaxy_file": "requirements.yml"
     },

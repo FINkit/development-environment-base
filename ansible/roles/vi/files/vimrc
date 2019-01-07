@@ -1,0 +1,27 @@
+ " Indent automatically depending on filetype
+filetype indent on
+set autoindent
+
+" Turn on line numbering. Turn it off with set nonu
+set number
+
+" Set the tap spaces to 4 and expand to spaces
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4
+
+" Set syntax on
+syntax on
+
+" Case insensitive search
+set ic
+
+" Highlight search
+set hls
+
+" Wrap text instead of being on one line
+set lbr
+
+" Change colorscheme from default to delek
+colorscheme delek
+
+" Limit line length for git commit messages
+au FileType gitcommit set tw=70

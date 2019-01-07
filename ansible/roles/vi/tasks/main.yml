@@ -1,0 +1,41 @@
+---
+  - name: Create vim directory
+    file:
+      path: /home/vagrant/.vim
+      state: directory
+      owner: vagrant
+      group: vagrant
+      mode: 0775
+
+  - name: Creates directory
+    file:
+      path: "/home/vagrant/.vim/{{ item.dir }}"
+      state: directory
+      owner: vagrant
+      group: vagrant
+      mode: 0775
+    with_items:
+    - { dir: 'ftdetect' }
+    - { dir: 'indent' }
+    - { dir: 'syntax' }
+
+  - name: copy scripts to workspace
+    copy:
+      src: vimrc
+      dest: /home/vagrant/.vimrc
+      owner: vagrant
+      group: vagrant
+      mode: 0775
+
+  - name: run dos2unix against scripts
+    command: dos2unix /home/vagrant/.vimrc
+
+  - name: download scala vim configuration
+    get_url:
+      url: https://raw.githubusercontent.com/derekwyatt/vim-scala/master/syntax/scala.vim
+      dest: "{{ item.dest }}/{{ item.dir }}/scala.vim"
+      mode: 0440
+    with_items:
+    - { dir: 'ftdetect', dest: '/home/vagrant/.vim' }
+    - { dir: 'indent', dest: '/home/vagrant/.vim' }
+    - { dir: 'syntax', dest: '/home/vagrant/.vim' }

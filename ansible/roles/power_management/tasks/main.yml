@@ -1,0 +1,6 @@
+---
+
+  - name: copy screensaver settings
+    copy:
+      src: .xscreensaver
+      dest: /home/vagrant/.xscreensaver
