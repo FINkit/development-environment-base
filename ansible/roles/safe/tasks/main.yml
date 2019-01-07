@@ -1,0 +1,21 @@
+---
+- name: Create dir
+  file:
+    path: /opt/safe
+    state: directory
+  become: true
+
+- name: Download
+  get_url:
+    dest: "/opt/safe"
+    url: "https://github.com/starkandwayne/safe/releases/download/v{{ safe_version }}/safe-linux-amd64"
+    mode: 0755
+  become: true
+
+- name: Add to path
+  file:
+    src: "/opt/safe/safe-linux-amd64"
+    dest: /usr/local/bin/safe
+    owner: root
+    group: root
+    state: link
