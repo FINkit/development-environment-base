@@ -22,6 +22,3 @@ set lbr
 
 " Change colorscheme from default to delek
 colorscheme delek
-
-" Limit line length for git commit messages
-au FileType gitcommit set tw=70
