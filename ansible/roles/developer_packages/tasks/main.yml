@@ -47,3 +47,6 @@
       - build-essential
       - vim-gui-common
       - vim-runtime
+
+  - name: install ngrok
+    shell: sudo snap install ngrok
