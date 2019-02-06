@@ -4,7 +4,7 @@
     cf_cli_version: "6.42.0"
     maven_version: "3.5.4"
     atom_version: "1.26.1"
-    gradle_version: "5.1.1"
+    gradle_version: "5.2"
     go_version: "1.11.5"
     compliance_masonry_version: "1.1.5"
     bosh_cli_version: "5.4.0"
