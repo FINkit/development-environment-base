@@ -49,4 +49,5 @@
       - vim-runtime
 
   - name: install ngrok
-    shell: sudo snap install ngrok
+    shell: snap install ngrok
+    become: yes
