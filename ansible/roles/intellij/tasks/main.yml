@@ -12,7 +12,7 @@
   - name: extract latest IDEA release build
     xml:
       path: ./intellij_updates.xml
-      xpath: //channel[@id='IDEA_Release']/build[1]
+      xpath: //channel[@id='IC-IU-RELEASE-licensing-RELEASE']/build[1]
       content: attribute
       attribute: version
     register: latest_intellij_version
