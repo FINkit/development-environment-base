@@ -1,12 +1,12 @@
 ---
 - hosts: all
   vars:
-    cf_cli_version: "6.42.0"
+    cf_cli_version: "6.43.0"
     maven_version: "3.5.4"
     atom_version: "1.26.1"
-    gradle_version: "5.2"
-    go_version: "1.11.5"
-    compliance_masonry_version: "1.1.5"
+    gradle_version: "5.2.1"
+    go_version: "1.12"
+    compliance_masonry_version: "1.1.6"
     bosh_cli_version: "5.4.0"
     yq_linux_version: "1.14.0"
     terraform_version: "0.11.11"
@@ -14,10 +14,10 @@
     credhub_cli_version: "2.2.1"
     fly_version: "3.14.1"
     groovy_version: "2.4.15"
-    vscode_version: "1.30.2"
+    vscode_version: "1.31.1"
     vault_version: "1.0.2"
     safe_version: "0.9.9"
-    hub_version: "2.8.4"
+    hub_version: "2.10.0"
     lastpass_version: "1.3.1"
     docker_users:
       - vagrant
